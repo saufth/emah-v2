@@ -1,0 +1,11 @@
+.btn {
+  @apply max-w-fit px-8 py-4 leading-none whitespace-nowrap rounded-[4px];
+}
+
+.btn__primary {
+  @apply text-secondary bg-primary-light hover:bg-primary;
+}
+
+.btn__secondary {
+  @apply text-secondary bg-white hover:bg-primary;
+}

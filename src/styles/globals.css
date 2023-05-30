@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply max-w-screen overflow-x-hidden overscroll-y-none !scroll-smooth;
+  }
+
+  body {
+    @apply font-primary-regular text-secondary bg-white antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  *,
+  *::before,
+  *::after {
+    @apply box-border p-0 m-0;
+  }
+
+  *:focus {
+    @apply outline-none;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  h1 {
+    @apply font-primary-black text-5xl md:text-8xl leading-tight md:leading-tight;
+  }
+
+  h2 {
+    @apply font-primary-black text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply font-primary-bold text-2xl;
+  }
+
+  /* Primary Font - Lato */
+
+  @font-face {
+    font-family: Primary thin;
+    src: url(../../public/fonts/primary/thin.ttf);
+  }
+
+  @font-face {
+    font-family: Primary light;
+    src: url(../../public/fonts/primary/light.ttf);
+  }
+
+  @font-face {
+    font-family: Primary regular;
+    src: url(../../public/fonts/primary/regular.ttf);
+  }
+
+  @font-face {
+    font-family: Primary bold;
+    src: url(../../public/fonts/primary/bold.ttf);
+  }
+
+  @font-face {
+    font-family: Primary black;
+    src: url(../../public/fonts/primary/black.ttf);
+  }
+}
+
+@layer utilities {
+  /* Background */
+  .bg-gradient {
+    @apply bg-gradient-to-r from-primary-dark to-primary-light;
+  }
+}
