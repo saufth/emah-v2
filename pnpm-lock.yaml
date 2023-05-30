@@ -2,7 +2,7 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@emailjs/browser':
-    specifier: ^3.11.0
+    specifier: 3.11.0
     version: 3.11.0
   framer-motion:
     specifier: 10.12.12
