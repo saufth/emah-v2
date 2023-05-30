@@ -14,9 +14,14 @@ export const authors: Author = {
 }
 
 /** The name of the organization */
-export const organization = 'emah Expert Marketing & Hacks'
+export const organization = 'Emah'
 
-/** The head desciption of the application */
+/** The alternative name of the organization */
+export const organizationAlt = 'Expert Marketing Associates & Hacks'
+
+/** The head title of the application */
+export const organizationTitle = `${organization} – ${organizationAlt}`
+
 export const description = 'Hacemos Marketing Estratégico.'
 
 /** Organization solutions */

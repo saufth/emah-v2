@@ -38,10 +38,10 @@ export default function HomePage () {
       <section className='relative'>
         <div className='h-full px-5% pb-24 pt-28 md:pt-40 mx-auto space-y-12 md:space-y-12'>
           <div className='max-w-5xl mx-auto space-y-2 text-center text-white'>
+            <h1>{description}</h1>
             <p className='font-primary-bold md:text-lg'>
               Great branding + Great apps + Great code = Explosive Results.
             </p>
-            <h1>{description}</h1>
           </div>
 
           <div className='flex justify-center'>

@@ -7,7 +7,15 @@ import { Suspense } from 'react'
 import GoogleSearchScript from '@/components/app/GoogleSearchScript'
 import GoogleAnalyticsScript from '@/components/app/GoogleAnalyticsScript'
 // Config
-import { description, organization, keywords, authors, baseUrl, themeColor } from '@/modules/app/config'
+import {
+  description,
+  organization,
+  keywords,
+  authors,
+  baseUrl,
+  themeColor,
+  organizationTitle
+} from '@/modules/app/config'
 // Types
 import type { Metadata } from 'next'
 import type { Parent } from '@/types/layout'
@@ -18,7 +26,7 @@ import '@/styles/globals.css'
 export const metadata: Metadata = {
   title: {
     default: organization,
-    template: `%s – ${organization}`
+    template: `%s – ${organizationTitle}`
   },
   description,
   keywords,
@@ -30,7 +38,7 @@ export const metadata: Metadata = {
   generator: 'Next.js',
   robots: 'index, follow',
   openGraph: {
-    title: organization,
+    title: organizationTitle,
     description,
     url: baseUrl,
     siteName: organization,
