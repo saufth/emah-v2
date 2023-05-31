@@ -39,7 +39,7 @@ export default function Link ({
   theme = THEMES.primary,
   underline
 }: LinkProps) {
-  const linkRel = typeof rel === 'string' ? rel : rel?.join(' ')
+  const linkRel = rel && (typeof rel === 'string' ? rel : rel?.join(' '))
   const linkStyle = `${SIZE_STYLES[size]} ${THEME_STYLES[theme]} ${underline ? 'underline' : ''}`
 
   return (

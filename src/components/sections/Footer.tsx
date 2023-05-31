@@ -11,6 +11,7 @@ import { THEMES } from '@/modules/theme/config'
 import { SIZES } from '@/modules/sizing/config'
 import { LOGO_TYPES } from '@/modules/data-display/config'
 
+/** The main footer of the application */
 export default function Footer () {
   return (
     <footer className='bg-secondary'>

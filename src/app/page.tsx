@@ -1,5 +1,4 @@
 // Components
-import Background from '@/components/background/Background'
 // import Image from 'next/image'
 // import LinkToContact from '@/components/navigation/LinkToContact'
 // Config
@@ -35,9 +34,9 @@ import { description } from '@/modules/app/config'
 export default function HomePage () {
   return (
     <main>
-      <section className='relative'>
+      <section className='bg-gradient'>
         <div className='h-full px-5% pb-24 pt-28 md:pt-40 mx-auto space-y-12 md:space-y-12'>
-          <div className='max-w-5xl mx-auto space-y-2 text-center text-white'>
+          <div className='max-w-5xl mx-auto space-y-6 text-center text-white'>
             <h1>{description}</h1>
             <p className='font-primary-bold md:text-lg'>
               Great branding + Great apps + Great code = Explosive Results.
@@ -63,7 +62,6 @@ export default function HomePage () {
             </div>
           </div>
         </div>
-        <Background />
       </section>
 
       <div className='w-full h-2xl' />

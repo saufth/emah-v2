@@ -17,107 +17,65 @@ import { NAV, navAriaLabel } from '@/modules/navigation/config'
 import { OC_STATE } from '@/modules/input/config'
 import { DEVICE_SIZES, SIZES, mobileQuery } from '@/modules/sizing/config'
 // Tpes
-import type { OCVariantsConfig } from '@/types/animation'
-import type { SizeDevice } from '@/types/sizing'
+import type { OCVariantsDevicesConfig, OCVariantsConfig, TransitionConfig } from '@/types/animation'
 
-/** Header animation transition configuration */
-const headerTransitions = {
+/** Navbar animation transition configuration */
+const NAVBAR_TRANSITION: TransitionConfig = {
   type: 'spring',
   stiffness: 240,
   damping: 26,
+  duration: 0.3,
   ease: 'easeIn'
 }
 
-/** Header element animation variants for desktop */
-const HEADER_VARIANTS_DESKTOP: OCVariantsConfig = {
+/** Navbar element animation variants */
+const NAVBAR_VARIANTS: OCVariantsConfig = {
   open: {
     width: '100%',
     height: '100vh',
     top: 0,
     border: 0,
-    borderRadius: 0,
-    transition: {
-      ...headerTransitions,
-      duration: 0.8,
-      delay: 0.06,
-      border: {
-        delay: 0
-      },
-      borderRadius: {
-        duration: 0.06,
-        ease: 'easeOut'
-      }
-    }
+    borderRadius: 0
   },
   closed: {
-    width: '91.666667%',
+    width: '90%',
+    border: '1px solid rgba(128, 128, 128, 0.1)',
+    borderRadius: 24
+  }
+}
+
+/** Header element animation variants for desktop */
+const NAVBAR_VARIANTS_DESKTOP: OCVariantsConfig = {
+  open: {
+    ...NAVBAR_VARIANTS.open,
+    transition: NAVBAR_TRANSITION
+  },
+  closed: {
     height: 80,
     top: 28,
-    border: '1px solid rgba(128, 128, 128, 0.1)',
-    borderRadius: 9999,
-    transition: {
-      ...headerTransitions,
-      duration: 0.06,
-      borderRadius: {
-        duration: 0.8,
-        delay: 0.06,
-        ease: 'easeOut'
-      }
-    }
+    ...NAVBAR_VARIANTS.closed,
+    transition: NAVBAR_TRANSITION
   }
 }
 
 /** Header element animation variants for mobile */
-const HEADER_VARIANTS_MOBILE: OCVariantsConfig = {
+const NAVBAR_VARIANTS_MOBILE: OCVariantsConfig = {
   open: {
-    width: '100%',
-    height: '100vh',
-    top: 0,
-    border: 0,
-    borderRadius: 0,
-    transition: {
-      ...headerTransitions,
-      duration: 0.8,
-      delay: 0.06,
-      border: {
-        duration: 0.06,
-        delay: 0
-      },
-      borderRadius: {
-        duration: 0.06,
-        delay: 0,
-        ease: 'easeOut'
-      }
-    }
+    ...NAVBAR_VARIANTS.open,
+    transition: NAVBAR_TRANSITION
   },
   closed: {
-    width: '90%',
     height: 64,
     top: 16,
-    border: '1px solid rgba(128, 128, 128, 0.1)',
-    borderRadius: 9999,
-    transition: {
-      ...headerTransitions,
-      duration: 0.06,
-      borderRadius: {
-        duration: 0.8,
-        delay: 0.06,
-        ease: 'easeOut'
-      }
-    }
+    ...NAVBAR_VARIANTS.closed,
+    transition: NAVBAR_TRANSITION
   }
 }
 
 /** Header element animation variants configuration */
-const HEADER_VARIANTS: Readonly<Record<SizeDevice, OCVariantsConfig>> = {
-  mobile: HEADER_VARIANTS_MOBILE,
-  desktop: HEADER_VARIANTS_DESKTOP
-}
-
-/** Nav animation transition configuration */
-const navTransitions = {
-  ease: 'easeOut',
-  duration: 0.6
+const NAVBAR_DEVICES_CONFIG: OCVariantsDevicesConfig = {
+  mobile: NAVBAR_VARIANTS_MOBILE,
+  desktop: NAVBAR_VARIANTS_DESKTOP
 }
 
 /** Header element animation variants */
@@ -125,13 +83,14 @@ const NAV_VARIANTS: OCVariantsConfig = {
   open: {
     opacity: 1,
     transition: {
-      ...navTransitions
+      duration: 0.8,
+      ease: 'easeOut'
     }
   },
   closed: {
     opacity: 0,
     transition: {
-      ...navTransitions
+      duration: 0.1
     }
   }
 }
@@ -141,10 +100,10 @@ const NAV_VARIANTS: OCVariantsConfig = {
  * @returns The Navbar component
  */
 export default function Navbar () {
-  /** Used for get the state of the window size */
+  /** Used to get the media query state of the window */
   const isMobile = useMediaQuery(mobileQuery)
   /** The header animation variants */
-  const headerVariants = HEADER_VARIANTS[isMobile ? DEVICE_SIZES.mobile : DEVICE_SIZES.desktop]
+  const navbarVariants = NAVBAR_DEVICES_CONFIG[isMobile ? DEVICE_SIZES.mobile : DEVICE_SIZES.desktop]
   // Animation state
   const [isOpen, toggle] = useCycle(false, true)
   /** The state key of the animation */
@@ -157,7 +116,7 @@ export default function Navbar () {
   return (
     <motion.header
       className='fixed left-0 right-0 mx-auto z-70 bg-white'
-      variants={headerVariants}
+      variants={navbarVariants}
       animate={animationState}
       initial={false}
     >
