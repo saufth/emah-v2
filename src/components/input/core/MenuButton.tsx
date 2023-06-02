@@ -4,14 +4,14 @@ import { motion, useCycle } from 'framer-motion'
 import { OCH_CYCLE, OCH_STATE } from '@/modules/input/config'
 // Types
 import type { Actionable } from '@/types/input'
-import type { OCHVariantsConfig } from '@/types/animation'
+import type { OCHVariantsConfig, TransitionConfig } from '@/types/animation'
 
 /** Animation transition configuration */
-const spanTransitions = {
-  stiffness: 36,
+const spanTransitions: TransitionConfig = {
+  stiffness: 64,
   damping: 12,
-  duration: 0.4,
-  ease: 'backOut'
+  duration: 0.3,
+  ease: 'easeOut'
 }
 
 /** Header element animation variants */

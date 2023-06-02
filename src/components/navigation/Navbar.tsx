@@ -145,10 +145,14 @@ export default function Navbar () {
             <div className='w-11/12 px-8 md:px-10 pb-9 mx-auto flex flex-col md:flex-row justify-between md:items-center gap-y-8'>
               <ul className='space-y-8'>
                 {NAV.map((option, key) => (
-                  <li className='first:hidden last:hidden' key={key}>
+                  <li
+                    className='first:hidden last:hidden'
+                    key={key}
+                  >
                     <Link
                       href={option.href}
                       size={SIZES.lg}
+                      action={closeToggle}
                     >
                       {option.children}
                     </Link>

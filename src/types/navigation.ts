@@ -1,16 +1,26 @@
 // Types
+import type { Actionable } from './input'
 import type { Parent } from './layout'
-import type { Themeable } from './theme'
 import type { Size } from './sizing'
+import type { Themeable } from './theme'
 
 /** The main routes of the application */
-export type AppRoute = 'home' | 'about' | 'solutions' | 'services' | 'why' | 'contact'
+export type AppRoute = 'home'
+| 'about'
+| 'solutions'
+| 'services'
+| 'why'
+| 'contact'
 
 /** Used for application routes configuration */
 export type AppRouteConfig = ReadonlyArray<AppRoute>
 
 /** Specifes where to open the linked document */
-export type LinkTarget = '_blank' | '_self' | '_parent' | '_top' | 'framename'
+export type LinkTarget = '_blank'
+| '_self'
+| '_parent'
+| '_top'
+| 'framename'
 
 /** Specifies the relationship between the current document and the linked document */
 export type LinkRel = 'alternate'
@@ -34,7 +44,7 @@ export interface Navigable extends Required<Parent<string>> {
 }
 
 /** Link properties */
-export interface LinkProps extends Navigable, Themeable {
+export interface LinkProps extends Navigable, Themeable, Actionable {
   /** Link target property */
   target?: LinkTarget
   /** Link rel property */

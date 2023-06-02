@@ -37,7 +37,8 @@ export default function Link ({
   rel,
   size = SIZES.md,
   theme = THEMES.primary,
-  underline
+  underline,
+  action
 }: LinkProps) {
   const linkRel = rel && (typeof rel === 'string' ? rel : rel?.join(' '))
   const linkStyle = `${SIZE_STYLES[size]} ${THEME_STYLES[theme]} ${underline ? 'underline' : ''}`
@@ -48,6 +49,7 @@ export default function Link ({
       href={href}
       target={target}
       rel={linkRel}
+      onClick={action}
     >
       {children}
     </NextLink>
