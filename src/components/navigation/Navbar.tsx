@@ -24,8 +24,7 @@ const NAVBAR_TRANSITION: TransitionConfig = {
   type: 'spring',
   stiffness: 240,
   damping: 26,
-  duration: 0.3,
-  ease: 'easeIn'
+  duration: 0.2
 }
 
 /** Navbar element animation variants */
