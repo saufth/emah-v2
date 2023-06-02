@@ -142,8 +142,8 @@ export default function Navbar () {
           initial={false}
         >
           <div className='h-full overflow-y-auto'>
-            <div className='w-11/12 px-8 md:px-10 pb-9 mx-auto flex flex-col md:flex-row justify-between md:items-center gap-y-8'>
-              <ul className='space-y-8'>
+            <div className='w-11/12 px-8 md:px-10 pb-9 mx-auto flex flex-col md:flex-row justify-between md:items-center gap-y-10'>
+              <ul className='space-y-10'>
                 {NAV.map((option, key) => (
                   <li
                     className='first:hidden last:hidden'

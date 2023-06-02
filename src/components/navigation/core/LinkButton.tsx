@@ -22,7 +22,9 @@ export default function LinkButton ({ children, href, theme = THEMES.primary }: 
   return (
     <NextLink href={href}>
       <div className={btnStyle}>
-        {children?.toUpperCase()} <span className='ml-1 text-sm'>{'>'}</span>
+        <div className={styles.btn__container}>
+          {children}
+        </div>
       </div>
     </NextLink>
   )

@@ -42,7 +42,16 @@ export default function HomePage () {
     <main>
       <Hero />
 
-      <div className='w-full h-2xl' />
+      <section className='px-5% py-36 text-center space-y-6'>
+        <header>
+          <h2 className='text-base text-transparent bg-clip-text bg-gradient'>
+            NUESTRO PROPOSITO
+          </h2>
+        </header>
+        <p className='font-primary-bold text-8xl leading-tight tracking-wide'>
+          Impulsamos empresas con visión, a fin de crear un legado de progreso y verdad.
+        </p>
+      </section>
 
       {/* <section
         id={APP_ROUTES[1]}

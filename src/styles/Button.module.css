@@ -1,11 +1,15 @@
 .btn {
-  @apply max-w-fit px-8 py-4 leading-none whitespace-nowrap rounded-[4px];
+  @apply w-44 h-12 grid place-content-center leading-none whitespace-nowrap rounded-full;
+}
+
+.btn__container {
+  @apply w-[172px] h-11 bg-white grid place-content-center text-primary rounded-full;
 }
 
 .btn__primary {
-  @apply text-secondary bg-primary-light hover:bg-primary;
+  @apply bg-gradient-to-tl from-primary-dark to-primary-light;
 }
 
 .btn__secondary {
-  @apply text-secondary bg-white hover:bg-primary;
+  @apply bg-white;
 }
