@@ -44,7 +44,10 @@ export default function Hero () {
         className='h-full px-5% pb-24 mx-auto space-y-12 md:space-y-12'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.1 }}
+        transition={{
+          duration: 1,
+          delay: 0.1
+        }}
         ref={heroContentRef}
       >
         <div className='max-w-5xl mx-auto space-y-6 text-center text-white'>

@@ -130,7 +130,7 @@ export default function Navbar () {
             />
           </NextLink>
 
-          <div className='pr-1'>
+          <div className='pr-1 md:pr-2'>
             <MenuButton action={handleToggle} />
           </div>
         </div>
