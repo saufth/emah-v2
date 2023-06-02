@@ -73,7 +73,9 @@ module.exports = {
       zIndex: {
         60: '60',
         70: '70',
-        80: '80'
+        80: '80',
+        90: '90',
+        100: '100'
       },
       fontSize: {
         md: ['0.938rem', { lineHeight: '1.375rem' }], // 15px

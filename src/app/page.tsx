@@ -1,8 +1,9 @@
 // Components
 // import Image from 'next/image'
+import dynamic from 'next/dynamic'
+import Loading from './loading'
 // import LinkToContact from '@/components/navigation/LinkToContact'
 // Config
-import { description } from '@/modules/app/config'
 // import { SOLUTIONS, description } from '@/modules/app/config'
 // import { IMG_EXT, picturesPath } from '@/modules/data-display/config'
 // import { APP_ROUTES } from '@/modules/navigation/config'
@@ -30,39 +31,16 @@ import { description } from '@/modules/app/config'
 //   }
 // ]
 
+const Hero = dynamic(() => import('@/components/sections/Hero'), {
+  loading: () => <Loading />,
+  ssr: false
+})
+
 /** The home page of the application */
 export default function HomePage () {
   return (
     <main>
-      <section className='bg-gradient'>
-        <div className='h-full px-5% pb-24 pt-28 md:pt-40 mx-auto space-y-12 md:space-y-12'>
-          <div className='max-w-5xl mx-auto space-y-6 text-center text-white'>
-            <h1>{description}</h1>
-            <p className='font-primary-bold md:text-lg'>
-              Great branding + Great apps + Great code = Explosive Results.
-            </p>
-          </div>
-
-          <div className='flex justify-center'>
-            <div className='max-w-2xl h-md overflow-hidden rounded-3xl'>
-              <video
-                className='w-full h-full object-cover'
-                width={1920}
-                height={1080}
-                controls={false}
-                autoPlay
-                muted
-                loop
-                playsInline
-                disablePictureInPicture
-                controlsList='nodownload noplaybackrate'
-              >
-                <source src='/video/hero.mp4' type='video/mp4' />
-              </video>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       <div className='w-full h-2xl' />
 

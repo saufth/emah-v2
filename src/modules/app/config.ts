@@ -35,7 +35,7 @@ export const SOLUTIONS: ReadonlyArray<string> = [
 /** The keyword list of the application */
 export const keywords = [
   organization.toLowerCase(),
-  ...(SOLUTIONS.map((service) => service.toLowerCase()))
+  ...SOLUTIONS.map((service) => service.toLowerCase())
 ]
 
 /** Theme color of the application */

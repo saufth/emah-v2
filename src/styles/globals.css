@@ -65,6 +65,21 @@
     font-family: Primary black;
     src: url(../../public/fonts/primary/black.ttf);
   }
+
+  /* Interactivity */
+
+  ::-webkit-scrollbar {
+    @apply h-3 w-1.5 bg-secondary/60;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-secondary;
+    -webkit-border-radius: 1ex;
+  }
+
+  ::-webkit-scrollbar-corner {
+    @appky bg-secondary;
+  }
 }
 
 @layer utilities {

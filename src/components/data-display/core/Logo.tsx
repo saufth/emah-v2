@@ -8,22 +8,19 @@ import { THEMES } from '@/modules/theme/config'
 import type { Dimensionable, Size } from '@/types/sizing'
 import type { LogoProps, LogoType } from '@/types/data-dislay'
 
-/** This constant is normally used on all applications */
-const logoHeight = 250
+/** The default logotype size */
+const logoSize: Dimensionable = {
+  width: 826,
+  height: 250
+}
 
 /** Logo component sizes configuration */
 const LOGO_SIZES: Readonly<Record<LogoType, Dimensionable>> = {
-  logotype: {
-    width: 307,
-    height: logoHeight
-  },
-  logoname: {
-    width: 826,
-    height: logoHeight
-  },
+  logotype: logoSize,
+  logoname: logoSize,
   logomark: {
-    width: 826,
-    height: logoHeight
+    width: 307,
+    height: logoSize.height
   }
 }
 
@@ -42,8 +39,8 @@ const LOGO_SIZE_STYLES: Readonly<Record<Size, string>> = {
  */
 export default function Logo ({
   type = LOGO_TYPES.logotype,
-  alt = organization,
   theme = THEMES.primary,
+  alt = organization,
   size,
   priority
 }: LogoProps) {

@@ -2,6 +2,7 @@
 import Footer from '@/components/sections/Footer'
 import Navbar from '@/components/navigation/Navbar'
 import Loading from './loading'
+import ScrollProgressBar from '@/components/feedback/ScrollProgressBar'
 import { Suspense } from 'react'
 // Scripts
 import GoogleSearchScript from '@/components/app/GoogleSearchScript'
@@ -63,6 +64,7 @@ export default function RootLayout ({ children }: Parent) {
   return (
     <html lang='es-MX'>
       <body>
+        <ScrollProgressBar />
         <Suspense fallback={<Loading />}>
           <Navbar />
           {children}

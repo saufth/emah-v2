@@ -29,7 +29,7 @@ const ICONS: Readonly<Record<AppIcon, SVGIcon>> = {
 }
 
 /**
-* The main svg icon component of the application
+* Display a svg icon
 * @see {@link IconProps} for props definition
 * @param {IconProps} IconProps The Icon component porps
 * @returns The Icon component
