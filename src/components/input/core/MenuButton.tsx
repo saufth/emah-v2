@@ -7,7 +7,7 @@ import type { Actionable } from '@/types/input'
 import type { OCHVariantsConfig, TransitionConfig } from '@/types/animation'
 
 /** Animation transition configuration */
-const spanTransitions: TransitionConfig = {
+const transition: TransitionConfig = {
   stiffness: 64,
   damping: 12,
   duration: 0.3,
@@ -20,23 +20,17 @@ const SPAN_A_VARIANTS: OCHVariantsConfig = {
     right: '0px',
     top: '17px',
     rotate: '45deg',
-    transition: {
-      ...spanTransitions
-    }
+    transition
   },
   closed: {
     right: '4px',
     top: '14px',
-    transition: {
-      ...spanTransitions
-    }
+    transition
   },
   hover: {
     right: '4px',
     top: '10px',
-    transition: {
-      ...spanTransitions
-    }
+    transition
   }
 }
 
@@ -46,23 +40,17 @@ const SPAN_B_VARIANTS: OCHVariantsConfig = {
     left: '0px',
     bottom: '17px',
     rotate: '-45deg',
-    transition: {
-      ...spanTransitions
-    }
+    transition
   },
   closed: {
     left: '4px',
     bottom: '14px',
-    transition: {
-      ...spanTransitions
-    }
+    transition
   },
   hover: {
     left: '4px',
     bottom: '10px',
-    transition: {
-      ...spanTransitions
-    }
+    transition
   }
 }
 
