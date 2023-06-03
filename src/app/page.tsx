@@ -82,7 +82,8 @@ export default function HomePage () {
             Nuestras soluciones
           </h2>
           <p className='font-primary-bold text-4xl md:text-7xl text-gradient--dark'>
-            Convertirnos en aliado estratégico en el éxito de nuestros clientes y socios.
+            Convertirnos en aliado estratégico y determinante
+            en el éxito de nuestros clientes y socios.
           </p>
           <div className='flex justify-center md:justify-start'>
             <LinkToServices />

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { picturesPath } from '@/modules/data-display/config'
 // Types
 import type { ShowcaseProps } from '@/types/data-dislay'
+import LinkButton from '../navigation/core/LinkButton'
 
 /**
  * Used for display a header with a image to show information about something
@@ -11,7 +12,14 @@ import type { ShowcaseProps } from '@/types/data-dislay'
  * @param ShowcaseProps The component props
  * @returns The Showcase component
  */
-export default function Showcase ({ heading, description, image, reverse, key }: ShowcaseProps) {
+export default function Showcase ({
+  heading,
+  description,
+  image,
+  link,
+  reverse,
+  key
+}: ShowcaseProps) {
   const containerReverseStyle = reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
 
   return (
@@ -26,6 +34,13 @@ export default function Showcase ({ heading, description, image, reverse, key }:
         <p className='leading-relaxed'>
           {description}
         </p>
+        {link
+          ? (
+            <LinkButton href={link}>
+              Saber más
+            </LinkButton>
+            )
+          : null}
       </header>
       <Image
         src={`${picturesPath}${image.name}.${image.ext}`}

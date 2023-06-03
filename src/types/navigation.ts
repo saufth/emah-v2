@@ -44,12 +44,16 @@ export interface Navigable extends Required<Parent<string>> {
   href: string
 }
 
-/** Link properties */
-export interface LinkProps extends Navigable, Themeable, Actionable {
+/** Link element properties */
+export interface Linkabe extends Navigable {
   /** Link target property */
   target?: LinkTarget
   /** Link rel property */
   rel?: LinkRel | LinkRel[]
+}
+
+/** Link component properties */
+export interface LinkProps extends Linkabe, Themeable, Actionable {
   /** Link resize property */
   size?: Size
   /** Underline the link text */

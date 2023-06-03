@@ -1,4 +1,5 @@
 // Types
+import type { AppRoute } from './navigation'
 import type { Dimensionable, SizeProps } from './sizing'
 import type { Key } from 'react'
 import type { Nameable } from './common'
@@ -78,6 +79,8 @@ export type HeaderListConfig = ReadonlyArray<HeaderProps>
 export interface ShowcaseProps extends HeaderProps {
   /** The image properties */
   image: ImageProps
+  /** The link to redirect */
+  link?: AppRoute
   /** Used to invert the order of the content */
   reverse: boolean
   /** The react key attribite */
