@@ -1,6 +1,7 @@
 // Types
-import type { Nameable } from './common'
 import type { Dimensionable, SizeProps } from './sizing'
+import type { Key } from 'react'
+import type { Nameable } from './common'
 import type { Themeable } from './theme'
 
 /** Video names of the application */
@@ -10,22 +11,34 @@ export type VideoApp = 'hero'
 export interface VideoProps extends Nameable<VideoApp> {}
 
 /** Image extention type */
-export type ImageExt = 'svg' | 'jpg' | 'png'
+export type ImageExt = 'svg'
+  | 'jpg'
+  | 'png'
 
 /** Logo component types */
-export type LogoType = 'logotype' | 'logoname' | 'logomark'
+export type LogoType = 'logotype'
+  | 'logoname'
+  | 'logomark'
 
-export interface ImageProps {
-  /** The source of the image */
-  src: string
-  /** Logo image alternative text */
-  alt?: string
-  /** Logo image priority */
+/** The pictures used on the application */
+export type PictureType = 'about'
+  | 'solutions0'
+  | 'solutions1'
+  | 'solutions2'
+  | 'solutions3'
+
+/** The image component properties */
+export interface ImageProps extends Nameable<PictureType>, Dimensionable {
+  /** The image extention */
+  ext: ImageExt
+  /** The image alternative text */
+  alt: string
+  /** The image priority */
   priority?: boolean
 }
 
 /** Logo component properties */
-export interface LogoProps extends Themeable, SizeProps, Omit<ImageProps, 'src'> {
+export interface LogoProps extends Themeable, SizeProps, Pick<ImageProps, 'alt' | 'priority'> {
   /** Logo style type */
   type?: LogoType
 }
@@ -61,3 +74,12 @@ export interface HeaderProps {
 
 /** Used for header list configuration */
 export type HeaderListConfig = ReadonlyArray<HeaderProps>
+
+export interface ShowcaseProps extends HeaderProps {
+  /** The image properties */
+  image: ImageProps
+  /** Used to invert the order of the content */
+  reverse: boolean
+  /** The react key attribite */
+  key?: Key | null
+}

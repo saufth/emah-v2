@@ -6,6 +6,7 @@ import type { AppRouteConfig, NavConfig } from '@/types/navigation'
 /** The application route names configuration */
 export const APP_ROUTES: AppRouteConfig = [
   'home',
+  'purpose',
   'about',
   'solutions',
   'services',
@@ -16,28 +17,32 @@ export const APP_ROUTES: AppRouteConfig = [
 /** The main navigation configuration of the application */
 export const NAV: NavConfig = [
   { // Page route
-    children: 'Home',
+    children: 'Inicio',
     href: '/' // The home reference always is '/'
   },
   { // Section route
-    children: 'About Us',
+    children: 'Propósito',
     href: `/#${APP_ROUTES[1]}`
   },
-  { // Section route
-    children: 'Solutions',
+  { // Page route
+    children: 'Nosotros',
     href: `/#${APP_ROUTES[2]}`
   },
   { // Section route
-    children: 'Services',
+    children: 'Soluciones',
     href: `/#${APP_ROUTES[3]}`
   },
   { // Page route
-    children: 'Reason why',
-    href: `/${APP_ROUTES[4]}`
+    children: 'Servicios',
+    href: `/#${APP_ROUTES[4]}`
+  },
+  { // Page route
+    children: 'Razón de ser',
+    href: `/${APP_ROUTES[5]}`
   },
   { // Page route
     children: 'Contact us',
-    href: `/${APP_ROUTES[5]}`
+    href: `/${APP_ROUTES[6]}`
   }
 ]
 

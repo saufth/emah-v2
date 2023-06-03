@@ -45,7 +45,7 @@ export default function Footer () {
             <LinkEmail theme={THEMES.secondary} />
           </div>
           <div className='grid place-content-center lg:hidden'>
-            <LinkToContact />
+            <LinkToContact theme={THEMES.secondary} />
           </div>
         </div>
       </div>

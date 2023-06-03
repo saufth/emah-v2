@@ -6,6 +6,7 @@ import type { Themeable } from './theme'
 
 /** The main routes of the application */
 export type AppRoute = 'home'
+| 'purpose'
 | 'about'
 | 'solutions'
 | 'services'

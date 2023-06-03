@@ -1,4 +1,5 @@
 // Types
+import type { Dimensionable } from '@/types/sizing'
 import type { ImageExt, LogoType } from '@/types/data-dislay'
 
 /** The core path to images */
@@ -25,4 +26,10 @@ export const LOGO_TYPES: Readonly<Record<LogoType, LogoType>> = {
   logotype: 'logotype',
   logoname: 'logoname',
   logomark: 'logomark'
+}
+
+/** The default pictures size */
+export const PICTURES_SIZE: Readonly<Dimensionable> = {
+  width: 1260,
+  height: 840
 }

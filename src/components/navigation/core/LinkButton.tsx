@@ -16,13 +16,15 @@ import styles from '@/styles/Button.module.css'
  * @default theme 'primary'
  */
 export default function LinkButton ({ children, href, theme = THEMES.primary }: LinkButtonProps) {
-  const themeStyle = theme === THEMES.secondary ? styles.btn__secondary : styles.btn__primary
-  const btnStyle = `${styles.btn} ${themeStyle}`
+  const btnThemeStyle = theme === THEMES.secondary ? styles.btn__secondary : styles.btn__primary
+  const btnContainerThemeStyle = theme === THEMES.secondary ? styles.btn_container__secondary : styles.btn_container__primary
+  const btnStyle = `${styles.btn} ${btnThemeStyle}`
+  const btnContainerStyle = `${styles.btn_container} ${btnContainerThemeStyle}`
 
   return (
     <NextLink href={href}>
       <div className={btnStyle}>
-        <div className={styles.btn__container}>
+        <div className={btnContainerStyle}>
           {children}
         </div>
       </div>
