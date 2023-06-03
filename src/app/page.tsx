@@ -58,7 +58,7 @@ export default function HomePage () {
             NUESTRO PROPOSITO
           </h2>
         </header>
-        <p className='font-primary-bold text-4xl md:text-8xl leading-tight md:leading-snug tracking-wide'>
+        <p className='font-primary-bold text-4xl md:text-8xl leading-tight md:leading-snug tracking-wide text-gradient--dark'>
           Impulsamos empresas con visión, a fin de crear un legado de progreso y verdad.
         </p>
         <Image
@@ -81,7 +81,7 @@ export default function HomePage () {
           <h2 className='text-base md:text-lg text-stone-500'>
             Nuestras soluciones
           </h2>
-          <p className='font-primary-bold text-4xl md:text-7xl'>
+          <p className='font-primary-bold text-4xl md:text-7xl text-gradient--dark'>
             Convertirnos en aliado estratégico en el éxito de nuestros clientes y socios.
           </p>
           <div className='flex justify-center md:justify-start'>

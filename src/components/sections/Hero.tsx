@@ -51,7 +51,9 @@ export default function Hero () {
         ref={heroContentRef}
       >
         <div className='max-w-5xl mx-auto space-y-6 text-center text-white'>
-          <h1>{description}</h1>
+          <h1 className='text-gradient--light'>
+            {description}
+          </h1>
           <p className='font-primary-bold md:text-lg'>
             Great branding + Great apps + Great code <br className='md:hidden' />
             = Explosive Results.
