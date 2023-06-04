@@ -27,7 +27,7 @@ export default function Hero () {
   })
   const spring = useSpring(scrollYProgress, {
     stiffness: 100,
-    damping: 36
+    damping: 16
   })
   const videoWidth = useTransform(
     spring,
@@ -50,7 +50,7 @@ export default function Hero () {
         }}
         ref={heroContentRef}
       >
-        <h1 className='text-center text-gradient--light'>
+        <h1 className='max-w-7xl mx-auto text-center text-gradient--light'>
           {description}
         </h1>
 

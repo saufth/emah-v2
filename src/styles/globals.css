@@ -28,7 +28,7 @@
   }
 
   h1 {
-    @apply font-primary-black text-5xl md:text-8xl leading-tight md:leading-tight;
+    @apply font-primary-black text-5xl md:text-9xl leading-tight md:leading-tight;
   }
 
   h2 {

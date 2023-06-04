@@ -22,7 +22,7 @@ export const organizationAlt = 'Expert Marketing Associates & Hacks'
 /** The head title of the application */
 export const organizationTitle = `${organization} – ${organizationAlt}`
 
-export const description = 'Hacemos Marketing Estratégico.'
+export const description = 'Hacemos Marketing Estratégico'
 
 /** Organization solutions */
 export const SOLUTIONS: ReadonlyArray<string> = [
