@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 /** Default values for sizing and spacing */
 const sizingConfig = {
   breakpoints: {
@@ -20,7 +22,10 @@ const sizingConfig = {
     15: '3.75rem', /* 60px */
     18: '4.5rem', /* 72px */
     '9/20': '45%',
-    '11/20': '55%'
+    '11/20': '55%',
+    '3%': '3%',
+    '5%': '5%',
+    '11%': '11%'
   }
 }
 
@@ -33,7 +38,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        /* Primary Font - ? */
+        /* Primary Font - Lato */
         'primary-thin': ['Primary thin', 'sans serif'],
         'primary-light': ['Primary light', 'sans serif'],
         'primary-regular': ['Primary regular', 'sans serif'],
@@ -53,8 +58,7 @@ module.exports = {
         ...sizingConfig.defaults
       },
       maxWidth: {
-        '1/2': '50%',
-        screen: '100vw',
+        screen: '100vw', // Prevents the element from growing larger than the viewport width
         ...sizingConfig.breakpoints
       },
       height: {
@@ -62,9 +66,6 @@ module.exports = {
         ...sizingConfig.defaults
       },
       padding: {
-        '3%': '3%',
-        '5%': '5%',
-        '11%': '11%',
         ...sizingConfig.defaults
       },
       margin: {
@@ -86,6 +87,13 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms')({
       strategy: 'class'
+    }),
+    plugin(({ addVariant, e }) => {
+      addVariant('second', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`second${separator}${className}`)}:nth-child(2)`
+        })
+      })
     })
   ]
 }
