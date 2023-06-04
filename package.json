@@ -1,6 +1,7 @@
 {
   "name": "emah",
-  "version": "1.1.5",
+  "version": "1.1.6",
+  "description": "A powerful production-ready environment with SEO optimized",
   "private": true,
   "homepage": "https://emah.mx/",
   "engines": {
@@ -16,23 +17,22 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emailjs/browser": "3.11.0",
-    "framer-motion": "10.12.12",
-    "next": "13.4.3",
+    "framer-motion": "10.12.16",
+    "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "0.5.3",
-    "@types/node": "20.2.1",
-    "@types/react": "18.2.6",
+    "@types/node": "20.2.5",
+    "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
-    "eslint": "8.41.0",
-    "eslint-config-next": "13.4.3",
-    "postcss": "8.4.23",
-    "standard": "17.0.0",
+    "eslint": "8.42.0",
+    "eslint-config-next": "13.4.4",
+    "postcss": "8.4.24",
+    "standard": "17.1.0",
     "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   }
 }
