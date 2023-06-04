@@ -42,11 +42,11 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: '#F5A130', // ?
-          DEFAULT: '#FF6700', // ?
-          dark: '#FF3600' // ?
+          light: '#F5A130', // Deep Saffron
+          DEFAULT: '#FF6700', // Safety Orange (Blaze Orange)
+          dark: '#FF3600' // Coquelicot
         },
-        secondary: '#222222' // ?
+        secondary: '#222222' // Raisin Black
       },
       width: {
         ...sizingConfig.breakpoints,
