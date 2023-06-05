@@ -46,7 +46,7 @@ export default function HomePage () {
       <Hero />
 
       <section className='px-5% py-36 md:py-44 text-center space-y-10 bg-stone-50'>
-        <header>
+        <header className='flex justify-center'>
           <h2 className='text-tagline-lg'>
             NUESTRO PROPOSITO
           </h2>

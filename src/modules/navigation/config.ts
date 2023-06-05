@@ -20,13 +20,13 @@ export const HOME_NAV: Readonly<Navigable> = {
 /** The about us page navigation configuration */
 export const ABOUT_NAV: Readonly<Navigable> = {
   children: 'Nosotros',
-  href: `/#${APP_ROUTES[1]}`
+  href: `/${APP_ROUTES[1]}`
 }
 
 /** The solutions page navigation configuration */
 export const SOLUTIONS_NAV: Readonly<Navigable> = {
   children: 'Soluciones',
-  href: `/#${APP_ROUTES[2]}`
+  href: `/${APP_ROUTES[2]}`
 }
 
 /** The contact page navigation configuration */

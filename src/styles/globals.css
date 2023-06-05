@@ -35,16 +35,8 @@
     @apply font-primary-black text-6xl md:text-9xl leading-tight md:leading-tight text-gradient-light;
   }
 
-  h2, h3 {
-    @apply text-gradient-dark;
-  }
-
-  h2 {
-    @apply h2;
-  }
-
   h3 {
-    @apply font-primary-bold text-3xl md:text-5xl;
+    @apply font-primary-bold text-3xl md:text-5xl text-gradient-dark;
   }
 
   /* Primary Font - Lato */
@@ -98,27 +90,35 @@
   }
 
   .h2 {
-    @apply font-primary-bold text-5xl md:text-7xl leading-tight md:leading-tight;
+    @apply font-primary-bold text-5xl md:text-7xl leading-tight md:leading-tight text-gradient-dark;
   }
 
   .text-tagline-md {
-    @apply text-sm md:text-base leading-none md:leading-none text-stone-500;
+    @apply max-w-fit text-sm md:text-base text-gradient-gray;
   }
 
   .text-tagline-lg {
-    @apply text-base md:text-lg leading-none md:leading-none text-stone-500;
+    @apply max-w-fit text-base md:text-lg text-gradient-gray;
+  }
+
+  .text-gradient-base {
+    @apply py-1 text-transparent bg-clip-text bg-gradient-to-r;
   }
 
   .text-gradient {
-    @apply py-1 text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary;
+    @apply text-gradient-base from-primary-dark to-primary;
   }
 
   .text-gradient-light {
-    @apply py-1 text-transparent bg-clip-text bg-gradient-to-r from-stone-100 via-white to-white;
+    @apply text-gradient-base from-stone-100 via-white to-white;
+  }
+
+  .text-gradient-gray {
+    @apply text-gradient-base from-stone-500 via-stone-700 to-stone-500;
   }
 
   .text-gradient-dark {
-    @apply py-1 text-transparent bg-clip-text bg-gradient-to-r from-secondary to-stone-700;
+    @apply text-gradient-base from-secondary to-stone-700;
   }
 
   /* Background */
