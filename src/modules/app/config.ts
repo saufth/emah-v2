@@ -28,8 +28,7 @@ export const description = 'Hacemos Marketing Estratégico'
 export const SOLUTIONS: ReadonlyArray<string> = [
   'Marketing',
   'Branding',
-  'Development',
-  'Design'
+  'Development'
 ]
 
 /** The keyword list of the application */

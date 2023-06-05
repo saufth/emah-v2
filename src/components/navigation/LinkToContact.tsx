@@ -1,7 +1,7 @@
 // Components
 import LinkButton from './core/LinkButton'
 // Config
-import { NAV } from '@/modules/navigation/config'
+import { CONTACT_NAV } from '@/modules/navigation/config'
 // Types
 import type { Themeable } from '@/types/theme'
 
@@ -13,8 +13,8 @@ import type { Themeable } from '@/types/theme'
  */
 export default function LinkToContact ({ theme }: Themeable) {
   return (
-    <LinkButton href={NAV[6].href} theme={theme}>
-      {NAV[6].children}
+    <LinkButton href={CONTACT_NAV.href} theme={theme}>
+      {CONTACT_NAV.children}
     </LinkButton>
   )
 }

@@ -6,15 +6,9 @@ import type { Themeable } from './theme'
 
 /** The main routes of the application */
 export type AppRoute = 'home'
-| 'purpose'
 | 'about'
 | 'solutions'
-| 'services'
-| 'why'
 | 'contact'
-
-/** Used for application routes configuration */
-export type AppRouteConfig = ReadonlyArray<AppRoute>
 
 /** Specifes where to open the linked document */
 export type LinkTarget = '_blank'
@@ -59,9 +53,6 @@ export interface LinkProps extends Linkabe, Themeable, Actionable {
   /** Underline the link text */
   underline?: boolean
 }
-
-/** Used for navigation configuration */
-export type NavConfig = ReadonlyArray<Navigable>
 
 /** The link button component properties */
 export interface LinkButtonProps extends LinkProps, Themeable {}

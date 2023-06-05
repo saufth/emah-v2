@@ -1,9 +1,8 @@
 // Components
 import Image from 'next/image'
-// import LinkToContact from '@/components/navigation/LinkToContact'
 import LinkToAbout from '@/components/navigation/LinkToAbout'
 import LinkToSolutions from '@/components/navigation/LinkToSolutions'
-import Loading from './loading'
+import Loading from '../loading'
 import Showcase from '@/components/data-display/Showcase'
 // Utils
 import dynamic from 'next/dynamic'
@@ -33,11 +32,15 @@ const SOLUTIONS_HEADERS: ReadonlyArray<HeaderProps> = [
   {
     heading: SOLUTIONS[2],
     description: 'Creemos que una página web le da cuerpo a la identidad de tu marca. Es por eso que desarrollamos sistemas responsivos con un propósito más grande que solo informar. Buscamos crear sitios web que sean reactivos al cambio, que generen una experiencia positiva y que muevan tus emociones.'
+  },
+  {
+    heading: SOLUTIONS[3],
+    description: 'No es tan simple con solo tener un logo. Para ser distinguido, es necesario establecer algunos parámetros que se usen siempre: un concepto de diseño. Definimos elementos visuales, colores y tipografía. Creamos presentaciones visuales únicas y consistentes para marcas sobresalientes.'
   }
 ]
 
 /** The solutions section id */
-const solutionsID = APP_ROUTES[2]
+const solutionsID = APP_ROUTES[1]
 
 /** The home page of the application */
 export default function HomePage () {

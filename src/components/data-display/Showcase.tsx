@@ -17,16 +17,12 @@ export default function Showcase ({
   description,
   image,
   link,
-  reverse,
-  key
+  reverse
 }: ShowcaseProps) {
   const containerReverseStyle = reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
 
   return (
-    <article
-      className={`py-12 flex flex-col-reverse ${containerReverseStyle} justify-between items-start md:items-center gap-y-6 lg:gap-x-12`}
-      key={key}
-    >
+    <article className={`py-12 flex flex-col-reverse ${containerReverseStyle} justify-between items-start md:items-center gap-y-6 lg:gap-x-12`}>
       <header className='space-y-4 lg:space-y-5 text-center lg:text-left'>
         <h3>
           {heading}

@@ -12,13 +12,13 @@ import type { ThemeStyleConfig } from '@/types/theme'
 const SIZE_STYLES: SizeStyleConfig = {
   sm: '',
   md: 'font-primary-bold',
-  lg: 'text-5xl md:text-6xl'
+  lg: 'font-primary-bold text-5xl md:text-7xl'
 }
 
 /** The link theme style configuration */
 const THEME_STYLES: ThemeStyleConfig = {
-  primary: '',
-  secondary: 'text-white'
+  primary: 'text-gradient-dark',
+  secondary: 'text-gradient-light'
 }
 
 /**
@@ -45,7 +45,7 @@ export default function Link ({
 
   return (
     <NextLink
-      className={`max-w-fit hover:text-primary-light transition-colors ${linkStyle}`}
+      className={`max-w-fit hover:text-gradient ${linkStyle} transition-colors`}
       href={href}
       target={target}
       rel={linkRel}

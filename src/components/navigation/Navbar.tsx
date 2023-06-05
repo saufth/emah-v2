@@ -13,7 +13,7 @@ import useMediaQuery from '@/modules/sizing/hooks/useMediaQuery'
 import { motion, useCycle } from 'framer-motion'
 // Config
 import { LOGO_TYPES } from '@/modules/data-display/config'
-import { NAV, navAriaLabel } from '@/modules/navigation/config'
+import { NAV_LIST, navAriaLabel } from '@/modules/navigation/config'
 import { OC_STATE } from '@/modules/input/config'
 import { DEVICE_SIZES, SIZES, mobileQuery } from '@/modules/sizing/config'
 // Tpes
@@ -121,10 +121,10 @@ export default function Navbar () {
     >
       <nav aria-label={navAriaLabel}>
         <div className='w-11/12 h-16 md:h-20 px-8 mx-auto fixed top-4 md:top-7 right-0 left-0 z-60 flex justify-between items-center'>
-          <NextLink href={NAV[0].href} onClick={closeToggle}>
+          <NextLink href={NAV_LIST[0].href} onClick={closeToggle}>
             <Logo
               type={isMobile ? LOGO_TYPES.logomark : LOGO_TYPES.logoname}
-              alt={NAV[0].children}
+              alt={NAV_LIST[0].children}
               size={SIZES.sm}
               priority
             />
@@ -142,13 +142,10 @@ export default function Navbar () {
           initial={false}
         >
           <div className='h-full overflow-y-auto'>
-            <div className='w-11/12 px-8 md:px-10 pb-9 mx-auto flex flex-col md:flex-row justify-between md:items-center gap-y-10'>
-              <ul className='space-y-10'>
-                {NAV.map((option, key) => (
-                  <li
-                    className='first:hidden last:hidden'
-                    key={key}
-                  >
+            <div className='w-11/12 px-8 md:px-10 py-6 md:py-9 mx-auto flex flex-col md:flex-row justify-between md:items-center gap-y-8 md:gap-y-10'>
+              <ul className='space-y-8 md:space-y-10'>
+                {NAV_LIST.map((option, key) => (
+                  <li key={key}>
                     <Link
                       href={option.href}
                       size={SIZES.lg}

@@ -10,7 +10,7 @@ import type { OCHVariantsConfig, TransitionConfig } from '@/types/animation'
 const transition: TransitionConfig = {
   stiffness: 64,
   damping: 12,
-  duration: 0.3,
+  duration: 0.24,
   ease: 'easeOut'
 }
 

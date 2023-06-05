@@ -1,7 +1,7 @@
 // Components
 import LinkButton from './core/LinkButton'
 // Config
-import { NAV } from '@/modules/navigation/config'
+import { ABOUT_NAV } from '@/modules/navigation/config'
 // Types
 import type { Themeable } from '@/types/theme'
 
@@ -13,8 +13,8 @@ import type { Themeable } from '@/types/theme'
  */
 export default function LinkToAbout ({ theme }: Themeable) {
   return (
-    <LinkButton href={NAV[2].href} theme={theme}>
-      {NAV[2].children}
+    <LinkButton href={ABOUT_NAV.href} theme={theme}>
+      {ABOUT_NAV.children}
     </LinkButton>
   )
 }

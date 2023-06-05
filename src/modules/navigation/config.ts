@@ -1,49 +1,46 @@
 // Config
 import { organization } from '../app/config'
 // Types
-import type { AppRouteConfig, NavConfig } from '@/types/navigation'
+import type { AppRoute, Navigable } from '@/types/navigation'
 
 /** The application route names configuration */
-export const APP_ROUTES: AppRouteConfig = [
+export const APP_ROUTES: ReadonlyArray<AppRoute> = [
   'home',
-  'purpose',
   'about',
   'solutions',
-  'services',
-  'why',
   'contact'
 ]
 
+/** The home navigation configuration */
+export const HOME_NAV: Readonly<Navigable> = {
+  children: 'Inicio',
+  href: '/' // The home reference always is '/'
+}
+
+/** The about us page navigation configuration */
+export const ABOUT_NAV: Readonly<Navigable> = {
+  children: 'Nosotros',
+  href: `/#${APP_ROUTES[1]}`
+}
+
+/** The solutions page navigation configuration */
+export const SOLUTIONS_NAV: Readonly<Navigable> = {
+  children: 'Soluciones',
+  href: `/#${APP_ROUTES[2]}`
+}
+
+/** The contact page navigation configuration */
+export const CONTACT_NAV: Readonly<Navigable> = {
+  children: 'Contactános',
+  href: `/${APP_ROUTES[3]}`
+}
+
 /** The main navigation configuration of the application */
-export const NAV: NavConfig = [
-  { // Page route
-    children: 'Inicio',
-    href: '/' // The home reference always is '/'
-  },
-  { // Section route
-    children: 'Propósito',
-    href: `/#${APP_ROUTES[1]}`
-  },
-  { // Page route
-    children: 'Nosotros',
-    href: `/#${APP_ROUTES[2]}`
-  },
-  { // Section route
-    children: 'Soluciones',
-    href: `/#${APP_ROUTES[3]}`
-  },
-  { // Page route
-    children: 'Servicios',
-    href: `/#${APP_ROUTES[4]}`
-  },
-  { // Page route
-    children: 'Razón de ser',
-    href: `/${APP_ROUTES[5]}`
-  },
-  { // Page route
-    children: 'Contact us',
-    href: `/${APP_ROUTES[6]}`
-  }
+export const NAV_LIST: ReadonlyArray<Readonly<Navigable>> = [
+  HOME_NAV,
+  ABOUT_NAV,
+  SOLUTIONS_NAV,
+  CONTACT_NAV
 ]
 
 /** The aria label for navigation directories */
