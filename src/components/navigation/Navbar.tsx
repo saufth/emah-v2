@@ -120,7 +120,7 @@ export default function Navbar () {
       initial={false}
     >
       <nav aria-label={navAriaLabel}>
-        <div className='w-11/12 h-16 md:h-20 px-8 mx-auto fixed top-4 md:top-7 right-0 left-0 z-60 flex justify-between items-center'>
+        <div className='w-11/12 h-16 md:h-20 px-6 md:px-10 mx-auto fixed top-4 md:top-7 right-0 left-0 z-60 flex justify-between items-center'>
           <NextLink href={NAV_LIST[0].href} onClick={closeToggle}>
             <Logo
               type={isMobile ? LOGO_TYPES.logomark : LOGO_TYPES.logoname}
@@ -130,7 +130,7 @@ export default function Navbar () {
             />
           </NextLink>
 
-          <div className='pr-1 md:pr-2'>
+          <div className='pr-1.5 md:pr-2.5'>
             <MenuButton action={handleToggle} />
           </div>
         </div>
