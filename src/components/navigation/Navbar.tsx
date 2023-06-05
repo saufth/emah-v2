@@ -4,17 +4,20 @@ import Link from './core/Link'
 import LinkEmail from './LinkEmail'
 import LinkToContact from './LinkToContact'
 import Logo from '../data-display/core/Logo'
-import MenuButton from '../input/core/MenuButton'
+import ButtonMenu from '../input/core/ButtonMenu'
 import NextLink from 'next/link'
 import SocialNav from './SocialNav'
+// Store
+import { useGlobalStore } from '@/modules/app/store'
+import { shallow } from 'zustand/shallow'
 // Hooks
 import useMediaQuery from '@/modules/sizing/hooks/useMediaQuery'
 // Animation
-import { motion, useCycle } from 'framer-motion'
+import { motion } from 'framer-motion'
 // Config
 import { LOGO_TYPES } from '@/modules/data-display/config'
 import { NAV_LIST, navAriaLabel } from '@/modules/navigation/config'
-import { OC_STATE } from '@/modules/input/config'
+import { OCH_STATE, OC_STATE } from '@/modules/input/config'
 import { DEVICE_SIZES, SIZES, mobileQuery } from '@/modules/sizing/config'
 // Tpes
 import type { OCVariantsDevicesConfig, OCVariantsConfig, TransitionConfig } from '@/types/animation'
@@ -99,24 +102,28 @@ const NAV_VARIANTS: OCVariantsConfig = {
  * @returns The Navbar component
  */
 export default function Navbar () {
+  // Animation state
+  const [menuState, toggleMenuState, setButtonMenuState] = useGlobalStore(
+    (state) => [state.menuState, state.toggleMenuState, state.setButtonMenuState],
+    shallow
+  )
+  /** Close the Menu but not open */
+  const closeToggle = () => {
+    if (menuState === OC_STATE.open) {
+      toggleMenuState()
+      setButtonMenuState(OCH_STATE.closed)
+    }
+  }
   /** Used to get the media query state of the window */
   const isMobile = useMediaQuery(mobileQuery)
   /** The header animation variants */
   const navbarVariants = NAVBAR_DEVICES_CONFIG[isMobile ? DEVICE_SIZES.mobile : DEVICE_SIZES.desktop]
-  // Animation state
-  const [isOpen, toggle] = useCycle(false, true)
-  /** The state key of the animation */
-  const animationState = isOpen ? OC_STATE.open : OC_STATE.closed
-  /** Handle the Menu state */
-  const handleToggle = () => { toggle() }
-  /** Close the Menu but not open */
-  const closeToggle = () => { isOpen && toggle() }
 
   return (
     <motion.header
       className='fixed left-0 right-0 mx-auto z-70 bg-white'
       variants={navbarVariants}
-      animate={animationState}
+      animate={menuState}
       initial={false}
     >
       <nav aria-label={navAriaLabel}>
@@ -131,14 +138,14 @@ export default function Navbar () {
           </NextLink>
 
           <div className='pr-1.5 md:pr-2.5'>
-            <MenuButton action={handleToggle} />
+            <ButtonMenu />
           </div>
         </div>
 
         <motion.div
           className='w-full h-full pt-24 md:pt-32 absolute top-0 left-0'
           variants={NAV_VARIANTS}
-          animate={animationState}
+          animate={menuState}
           initial={false}
         >
           <div className='h-full overflow-y-auto'>

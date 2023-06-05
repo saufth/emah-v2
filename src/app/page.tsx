@@ -45,13 +45,13 @@ export default function HomePage () {
     <main>
       <Hero />
 
-      <section className='px-5% py-36 md:py-44 text-center space-y-10 bg-stone-50'>
+      <section className='px-5% py-36 md:py-44 space-y-10 bg-stone-50'>
         <header className='flex justify-center'>
           <h2 className='text-tagline-lg'>
             NUESTRO PROPOSITO
           </h2>
         </header>
-        <p className='h2s'>
+        <p className='h2s text-center'>
           Impulsamos empresas con visión, a fin de crear un legado de progreso y verdad.
         </p>
         <Image

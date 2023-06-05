@@ -2,22 +2,13 @@
 import Image from 'next/image'
 import LinkToAbout from '@/components/navigation/LinkToAbout'
 import LinkToSolutions from '@/components/navigation/LinkToSolutions'
-import Loading from '../loading'
 import Showcase from '@/components/data-display/Showcase'
-// Utils
-import dynamic from 'next/dynamic'
 // Config
 import { APP_ROUTES } from '@/modules/navigation/config'
 import { picturesPath, IMG_EXT, PICTURES_SIZE } from '@/modules/data-display/config'
 import { SOLUTIONS, organization } from '@/modules/app/config'
 // Types
 import type { HeaderProps, PictureType } from '@/types/data-dislay'
-
-// Dynamic imports
-const Hero = dynamic(() => import('@/components/sections/Hero'), {
-  loading: () => <Loading />,
-  ssr: false
-})
 
 /** The headers configuration for solutions section */
 const SOLUTIONS_HEADERS: ReadonlyArray<HeaderProps> = [
@@ -40,13 +31,25 @@ const SOLUTIONS_HEADERS: ReadonlyArray<HeaderProps> = [
 ]
 
 /** The solutions section id */
-const solutionsID = APP_ROUTES[1]
+const solutionsID = APP_ROUTES[2]
 
 /** The home page of the application */
 export default function HomePage () {
   return (
     <main>
-      <Hero />
+      <section className='px-5% pt-44 pb-12 space-y-10'>
+        <h1 className='h2s text-center'>
+          El éxito a corto, mediano y largo plazo de cualquier empresa no depende
+          de un solo aspecto, sino de la sincronización de muchos.
+        </h1>
+        <Image
+          src={`${picturesPath}${solutionsID}.${IMG_EXT.jpg}`}
+          alt={organization}
+          className='w-full h-auto rounded-3xl'
+          width={PICTURES_SIZE.width}
+          height={PICTURES_SIZE.height}
+        />
+      </section>
 
       <section className='px-5% py-36 md:py-44 text-center space-y-10 bg-stone-50'>
         <header>

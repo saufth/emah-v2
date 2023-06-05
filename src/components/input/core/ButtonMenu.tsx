@@ -1,9 +1,11 @@
+// Store
+import { useGlobalStore } from '@/modules/app/store'
+import { shallow } from 'zustand/shallow'
 // Ainimation
-import { motion, useCycle } from 'framer-motion'
+import { motion } from 'framer-motion'
 // Config
-import { OCH_CYCLE, OCH_STATE } from '@/modules/input/config'
+import { OCH_STATE } from '@/modules/input/config'
 // Types
-import type { Actionable } from '@/types/input'
 import type { OCHVariantsConfig, TransitionConfig } from '@/types/animation'
 
 /** Animation transition configuration */
@@ -30,7 +32,10 @@ const SPAN_A_VARIANTS: OCHVariantsConfig = {
   hover: {
     right: '4px',
     top: '10px',
-    transition
+    transition: {
+      ...transition,
+      duration: 0.16
+    }
   }
 }
 
@@ -50,33 +55,37 @@ const SPAN_B_VARIANTS: OCHVariantsConfig = {
   hover: {
     left: '4px',
     bottom: '10px',
-    transition
+    transition: {
+      ...transition,
+      duration: 0.16
+    }
   }
 }
 
 /**
 * The main menu button of the application
-* @see {@link Actionable} for props definition
-* @param Actionable The basic input component props
-* @returns The MenuButton component
+* @returns The ButtonMenu component
 */
-export default function MenuButton ({ action }: Required<Actionable>) {
-  // Button aimation state
-  const [buttonState, cycleButton] = useCycle(OCH_STATE.closed, OCH_STATE.open, OCH_STATE.hover)
+export default function ButtonMenu () {
+  // Animation state
+  const [buttonMenuState, setButtonMenuState, toggleMenuState] = useGlobalStore(
+    (state) => [state.buttonMenuState, state.setButtonMenuState, state.toggleMenuState],
+    shallow
+  )
   /** Check if the menu is closed */
-  const isMenuClosed = () => buttonState !== OCH_STATE.open
+  const isMenuClosed = () => buttonMenuState !== OCH_STATE.open
   /** Handle the animation closed state */
   const handleMouseOut = () => {
-    isMenuClosed() && cycleButton(OCH_CYCLE.closed)
+    isMenuClosed() && setButtonMenuState(OCH_STATE.closed)
   }
   /** Handle the animation open state */
   const handleOpenState = () => {
-    action()
-    isMenuClosed() ? cycleButton(OCH_CYCLE.open) : cycleButton(OCH_CYCLE.closed)
+    toggleMenuState()
+    isMenuClosed() ? setButtonMenuState(OCH_STATE.open) : setButtonMenuState(OCH_STATE.closed)
   }
   /** Handle the animation hover state */
   const handleMouseOver = () => {
-    isMenuClosed() && cycleButton(OCH_CYCLE.hover)
+    isMenuClosed() && setButtonMenuState(OCH_STATE.hover)
   }
 
   return (
@@ -88,12 +97,12 @@ export default function MenuButton ({ action }: Required<Actionable>) {
     >
       <motion.span
         variants={SPAN_A_VARIANTS}
-        animate={buttonState}
+        animate={buttonMenuState}
         initial={false}
       />
       <motion.span
         variants={SPAN_B_VARIANTS}
-        animate={buttonState}
+        animate={buttonMenuState}
         initial={false}
       />
     </button>

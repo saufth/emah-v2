@@ -1,5 +1,4 @@
 // Types
-import type { OCHCycleConfig } from '@/types/animation'
 import type { ButtonTypesConfig, OCHStateConfig, OCStateConfig } from '@/types/input'
 
 /** Button types configuration */
@@ -19,11 +18,4 @@ export const OC_STATE: OCStateConfig = {
 export const OCH_STATE: OCHStateConfig = {
   ...OC_STATE,
   hover: 'hover'
-}
-
-/** Button animation cycles configuration */
-export const OCH_CYCLE: OCHCycleConfig = {
-  closed: 0,
-  open: 1,
-  hover: 2
 }

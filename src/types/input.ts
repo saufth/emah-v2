@@ -27,13 +27,13 @@ export interface ButtonProps extends Parent<string>, Actionable, Themeable {
   disabled?: boolean
 }
 
-/** Open-Closed state property */
+/** Open-closed state type */
 export type OCState = 'open' | 'closed'
 
 /** Used for open-closed state configuration */
 export type OCStateConfig = Readonly<Record<OCState, OCState>>
 
-/** The open-closed-hover state property */
+/** The open-closed-hover state type */
 export type OCHState = OCState | 'hover'
 
 /** Used for open-closed-hover state configuration */
