@@ -28,10 +28,7 @@ export default function Footer () {
           <nav aria-label={navAriaLabel}>
             <ul className='w-full flex flex-col lg:flex-row gap-y-4 lg:gap-x-6 text-center'>
               {NAV_LIST.map((option, key) => (
-                <li
-                  className='last:hidden last:lg:block'
-                  key={key}
-                >
+                <li key={key}>
                   <Link href={option.href} size={SIZES.sm}>
                     {option.children}
                   </Link>
