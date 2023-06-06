@@ -77,20 +77,16 @@ export default function ButtonMenu () {
   )
   /** Check if the menu is closed */
   const isMenuClosed = () => menuState !== OC_STATE.open
-  /** Handle the animation closed state */
-  const handleMouseOut = () => {
-    if (!isMenuClosed()) return false
-    setMenuState(OC_STATE.closed)
-    setButtonMenuState(OCH_STATE.closed)
-  }
   /** Handle the animamenu toggle state */
   const toggleMenu = () => {
-    setMenuState(isMenuClosed() ? OC_STATE.open : OC_STATE.closed)
+    const state = isMenuClosed() ? OC_STATE.open : OC_STATE.closed
+    setMenuState(state)
+    setButtonMenuState(state)
   }
   /** Handle the mouse over event state */
-  const handleMouseOver = () => {
-    setButtonMenuState(isMenuClosed() ? OCH_STATE.hover : OCH_STATE.closed)
-  }
+  const handleMouseOver = () => { isMenuClosed() && setButtonMenuState(OCH_STATE.hover) }
+  /** Handle the animation closed state */
+  const handleMouseOut = () => { isMenuClosed() && setButtonMenuState(OC_STATE.closed) }
 
   return (
     <button
