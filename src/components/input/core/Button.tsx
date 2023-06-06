@@ -22,14 +22,22 @@ export default function Button ({
   theme = THEMES.primary,
   disabled
 }: ButtonProps) {
-  const themeStyle = theme === THEMES.secondary ? styles.btn__secondary : styles.btn__primary
-  const btnStyle = `${styles.btn} ${themeStyle} ${styles.group}`
+  // Theme styles
+  const btnThemeStyle = theme === THEMES.secondary
+    ? styles.btn__secondary
+    : styles.btn__primary
+  const btnContainerThemeStyle = theme === THEMES.secondary
+    ? styles.btn_container__secondary
+    : styles.btn_container__primary
+  const btnStyle = `${styles.btn} ${btnThemeStyle}`
+  const btnContainerStyle = `${styles.btn_container} ${btnContainerThemeStyle}`
 
   return (
     <button onClick={action} type={type} disabled={disabled}>
       <div className={btnStyle}>
-        {children?.toUpperCase()} <span className={styles.btn__arrow}>&rarr;</span>
-        <div className={styles.btn__circle} />
+        <div className={btnContainerStyle}>
+          {children}
+        </div>
       </div>
     </button>
   )

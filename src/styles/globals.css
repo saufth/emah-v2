@@ -152,6 +152,10 @@
   }
 
   /* Background */
+  
+  .bg-base {
+    @apply bg-cover bg-center bg-no-repeat;
+  }
 
   .bg-gradient {
     @apply bg-gradient-to-r from-primary-dark to-primary-light;

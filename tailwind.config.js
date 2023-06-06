@@ -81,6 +81,9 @@ module.exports = {
       fontSize: {
         md: ['0.938rem', { lineHeight: '1.375rem' }], // 15px
         '4.5xl': ['2.5rem', { lineHeight: '2.5rem' }] // 40px
+      },
+      backgroundImage: {
+        contact: "url('/images/pictures/contact.jpg')"
       }
     }
   },

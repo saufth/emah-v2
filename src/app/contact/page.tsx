@@ -13,9 +13,8 @@ export const metadata: Metadata = {
 /** The contact page of the application */
 export default function ContactPage () {
   return (
-    <main>
-      <div className='w-full h-24 bg-secondary' />
-      <section className='max-w-4xl p-section mx-auto space-y-12'>
+    <main className='pt-12 md:pt-20 bg-base bg-contact'>
+      <section className='max-w-5xl p-section mx-auto space-y-8 md:space-y-12'>
         <header>
           <h2>Pongamonos en contacto</h2>
         </header>
