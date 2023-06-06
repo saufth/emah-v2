@@ -80,6 +80,7 @@ export default function SolutionsPage () {
         {Object.keys(SOLUTIONS_CONFIG).map((solution, key) => {
           return (
             <Showcase
+              id={solution}
               heading={SOLUTIONS_CONFIG[solution].heading}
               description={SOLUTIONS_CONFIG[solution].description}
               image={{

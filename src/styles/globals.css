@@ -124,11 +124,11 @@
   /* Typography */
 
   .h2s {
-    @apply font-primary-bold text-5xl md:text-8xl leading-tight md:leading-snug tracking-wide text-gradient-dark;
+    @apply font-primary-bold text-4xl md:text-8xl leading-tight md:leading-snug tracking-wide text-gradient-dark;
   }
 
   .h2 {
-    @apply font-primary-bold text-5xl md:text-7xl leading-tight md:leading-tight text-gradient-dark;
+    @apply font-primary-bold text-4xl md:text-7xl leading-tight md:leading-tight text-gradient-dark;
   }
 
   .text-gradient-base {
