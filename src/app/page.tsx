@@ -68,9 +68,11 @@ export default function HomePage () {
 
       <section className='p-section space-y-12 lg:space-y-24'>
         <header className='space-y-8 text-center lg:text-left'>
-          <h2 className='text-tagline'>
-            NUESTRAS SOLUCIONES
-          </h2>
+          <div className='flex justify-center md:block'>
+            <h2 className='text-tagline'>
+              NUESTRAS SOLUCIONES
+            </h2>
+          </div>
           <p className='h2'>
             Los mejores resultados se logran cuando la ejecución del branding
             y el marketing empujan hacia el mismo destino.

@@ -36,7 +36,7 @@ export default function Showcase ({
           : description.map((descriptionItem, key) => (
             <p key={key}>{descriptionItem}</p>
           ))}
-        <div>
+        <div className='flex justify-center md:block'>
           {href
             ? (
               <LinkButton href={href}>
