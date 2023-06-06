@@ -35,8 +35,16 @@
     @apply font-primary-black text-6xl md:text-9xl leading-tight md:leading-tight text-gradient-light;
   }
 
+  h2 {
+    @apply h2;
+  }
+
   h3 {
     @apply font-primary-bold text-3xl md:text-5xl text-gradient-dark;
+  }
+
+  h4 {
+    @apply font-primary-bold text-xl md:text-3xl text-gradient-dark;
   }
 
   /* Primary Font - Lato */
@@ -85,9 +93,33 @@
 @layer utilities {
   /* Spacing */
 
-    .py-section {
-      @apply py-24;
-    }
+  .pt-section {
+    @apply pt-24;
+  }
+
+  .pb-section {
+    @apply pb-24;
+  }
+
+  .py-section {
+    @apply pt-section pb-section;
+  }
+
+  .pr-section {
+    @apply pr-5%;
+  }
+
+  .pl-section {
+    @apply pl-5%;
+  }
+
+  .px-section {
+    @apply pr-section pl-section;
+  }
+
+  .p-section {
+    @apply px-section py-section;
+  }
 
   /* Typography */
 

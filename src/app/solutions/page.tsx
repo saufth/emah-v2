@@ -12,7 +12,7 @@ import { APP_ROUTES } from '@/modules/navigation/config'
 import { picturesPath, IMG_EXT, PICTURES_SIZE } from '@/modules/data-display/config'
 import { SOLUTIONS, organization } from '@/modules/app/config'
 // Types
-import type { HeaderProps, PictureType } from '@/types/data-dislay'
+import type { HeaderProps } from '@/types/data-dislay'
 
 // Dynamic imports
 const Hero = dynamic(() => import('@/components/sections/Hero'), {
@@ -45,7 +45,7 @@ export default function HomePage () {
     <main>
       <Hero />
 
-      <section className='px-5% py-section space-y-10 bg-stone-50'>
+      <section className='p-section space-y-10 bg-stone-50'>
         <header className='flex justify-center'>
           <h2 className='text-tagline'>
             NUESTRO PROPOSITO
@@ -66,7 +66,7 @@ export default function HomePage () {
         </div>
       </section>
 
-      <section className='px-5% py-section space-y-12 lg:space-y-24'>
+      <section className='p-section space-y-12 lg:space-y-24'>
         <header className='space-y-8 text-center lg:text-left'>
           <h2 className='text-tagline'>
             NUESTRAS SOLUCIONES
@@ -81,16 +81,13 @@ export default function HomePage () {
         </header>
 
         {SOLUTIONS_HEADERS.map((solution, key) => {
-          const imageName = `${solutionsID}${key}` as PictureType
-          const showcaseID = solution.heading.toLowerCase()
-
           return (
             <Showcase
-              id={showcaseID}
+              id={solution.heading.toLowerCase()}
               heading={solution.heading}
               description={solution.description}
               image={{
-                name: imageName,
+                name: `${solutionsID}${key}`,
                 ext: IMG_EXT.jpg,
                 alt: solution.heading,
                 ...PICTURES_SIZE

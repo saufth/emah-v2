@@ -1,10 +1,10 @@
 // Componens
 import Image from 'next/image'
+import LinkButton from '../navigation/core/LinkButton'
 // Config
 import { picturesPath } from '@/modules/data-display/config'
 // Types
 import type { ShowcaseProps } from '@/types/data-dislay'
-import LinkButton from '../navigation/core/LinkButton'
 
 /**
  * Used for display a header with a image to show information about something
@@ -23,13 +23,23 @@ export default function Showcase ({
   const containerReverseStyle = reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
 
   return (
-    <article id={id} className={`py-12 flex flex-col-reverse ${containerReverseStyle} justify-between items-start md:items-center gap-y-6 lg:gap-x-12`}>
+    <article
+      id={id}
+      className={`flex flex-col-reverse ${containerReverseStyle} justify-between items-start md:items-center gap-y-6 lg:gap-x-12`}
+    >
       <header className='space-y-4 lg:space-y-5 text-center lg:text-left'>
         <h3>
           {heading}
         </h3>
         <p className='leading-relaxed'>
-          {description}
+          {typeof description === 'string'
+            ? description
+            : (
+              <div className='space-y-4'>
+                {description.map((descriptionItem, key) => (
+                  <div key={key}>{descriptionItem}</div>
+                ))}
+              </div>)}
         </p>
         <div>
           {href

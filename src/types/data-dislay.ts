@@ -21,15 +21,8 @@ export type LogoType = 'logotype'
   | 'logoname'
   | 'logomark'
 
-/** The pictures used on the application */
-export type PictureType = 'about'
-  | 'solutions0'
-  | 'solutions1'
-  | 'solutions2'
-  | 'solutions3'
-
 /** The image component properties */
-export interface ImageProps extends Nameable<PictureType>, Dimensionable {
+export interface ImageProps extends Nameable, Dimensionable {
   /** The image extention */
   ext: ImageExt
   /** The image alternative text */
@@ -70,7 +63,7 @@ export interface HeaderProps {
   /** Header heading */
   heading: string
   /** Header description */
-  description?: string
+  description: string | string[]
 }
 
 export interface ShowcaseProps extends ID, HeaderProps, Partial<Pick<Navigable, 'href'>> {

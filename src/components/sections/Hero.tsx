@@ -41,7 +41,7 @@ export default function Hero () {
       ref={heroRef}
     >
       <motion.div
-        className='h-full px-5% pb-24 mx-auto space-y-12 md:space-y-12'
+        className='h-full px-section pb-section mx-auto space-y-12 md:space-y-12'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{

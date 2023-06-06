@@ -15,7 +15,7 @@ export default function ContactPage () {
   return (
     <main>
       <div className='w-full h-24 bg-secondary' />
-      <section className='max-w-4xl px-5% py-24 mx-auto space-y-12'>
+      <section className='max-w-4xl p-section mx-auto space-y-12'>
         <header>
           <h2>Pongamonos en contacto</h2>
         </header>
