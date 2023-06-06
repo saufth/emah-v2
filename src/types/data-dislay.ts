@@ -1,8 +1,9 @@
 // Types
-import type { AppRoute } from './navigation'
+import type { Navigable } from './navigation'
 import type { Dimensionable, SizeProps } from './sizing'
 import type { Nameable } from './common'
 import type { Themeable } from './theme'
+import { ID } from './layout'
 
 /** Video names of the application */
 export type VideoApp = 'hero'
@@ -72,11 +73,9 @@ export interface HeaderProps {
   description?: string
 }
 
-export interface ShowcaseProps extends HeaderProps {
+export interface ShowcaseProps extends ID, HeaderProps, Partial<Pick<Navigable, 'href'>> {
   /** The image properties */
   image: ImageProps
-  /** The link to redirect */
-  link?: AppRoute
   /** Used to invert the order of the content */
   reverse: boolean
 }

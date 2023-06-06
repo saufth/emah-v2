@@ -80,26 +80,26 @@ export default function HomePage () {
           </div>
         </header>
 
-        <div className='px-5'>
-          {SOLUTIONS_HEADERS.map((solution, key) => {
-            const imageName = `${solutionsID}${key}` as PictureType
+        {SOLUTIONS_HEADERS.map((solution, key) => {
+          const imageName = `${solutionsID}${key}` as PictureType
+          const showcaseID = solution.heading.toLowerCase()
 
-            return (
-              <Showcase
-                heading={solution.heading}
-                description={solution.description}
-                image={{
-                  name: imageName,
-                  ext: IMG_EXT.jpg,
-                  alt: solution.heading,
-                  ...PICTURES_SIZE
-                }}
-                reverse={key % 2 !== 0}
-                key={key}
-              />
-            )
-          })}
-        </div>
+          return (
+            <Showcase
+              heading={solution.heading}
+              description={solution.description}
+              image={{
+                name: imageName,
+                ext: IMG_EXT.jpg,
+                alt: solution.heading,
+                ...PICTURES_SIZE
+              }}
+              href={`/${solutionsID}#${showcaseID}`}
+              reverse={key % 2 !== 0}
+              key={key}
+            />
+          )
+        })}
       </section>
     </main>
   )

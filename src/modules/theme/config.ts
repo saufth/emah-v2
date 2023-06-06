@@ -1,8 +1,14 @@
 // Types
-import type { ThemeConfig } from '@/types/theme'
+import type { Theme, ThemeVariant } from '@/types/theme'
 
-/** Theme configuration */
-export const THEMES: ThemeConfig = {
+/** Themes configuration */
+export const THEMES: Readonly<Record<Theme, Theme>> = {
   primary: 'primary',
   secondary: 'secondary'
+}
+
+/** Theme vriants configuration */
+export const THEMES_VARIANT: Readonly<Record<ThemeVariant, ThemeVariant>> = {
+  light: 'light',
+  dark: 'dark'
 }

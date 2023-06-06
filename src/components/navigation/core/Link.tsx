@@ -5,18 +5,18 @@ import { SIZES } from '@/modules/sizing/config'
 import { THEMES } from '@/modules/theme/config'
 // Types
 import type { LinkProps } from '@/types/navigation'
-import type { SizeStyleConfig } from '@/types/sizing'
-import type { ThemeStyleConfig } from '@/types/theme'
+import type { Size } from '@/types/sizing'
+import type { Theme } from '@/types/theme'
 
 /** The link size style configuration */
-const SIZE_STYLES: SizeStyleConfig = {
+const SIZE_STYLES: Readonly<Record<Size, string>> = {
   sm: '',
   md: 'font-primary-bold',
   lg: 'font-primary-bold text-5xl md:text-7xl'
 }
 
 /** The link theme style configuration */
-const THEME_STYLES: ThemeStyleConfig = {
+const THEME_STYLES: Readonly<Record<Theme, string>> = {
   primary: 'text-gradient-dark',
   secondary: 'text-gradient-light'
 }

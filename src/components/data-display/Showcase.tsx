@@ -13,16 +13,17 @@ import LinkButton from '../navigation/core/LinkButton'
  * @returns The Showcase component
  */
 export default function Showcase ({
+  id,
   heading,
   description,
   image,
-  link,
+  href,
   reverse
 }: ShowcaseProps) {
   const containerReverseStyle = reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
 
   return (
-    <article className={`py-12 flex flex-col-reverse ${containerReverseStyle} justify-between items-start md:items-center gap-y-6 lg:gap-x-12`}>
+    <article id={id} className={`py-12 flex flex-col-reverse ${containerReverseStyle} justify-between items-start md:items-center gap-y-6 lg:gap-x-12`}>
       <header className='space-y-4 lg:space-y-5 text-center lg:text-left'>
         <h3>
           {heading}
@@ -30,13 +31,15 @@ export default function Showcase ({
         <p className='leading-relaxed'>
           {description}
         </p>
-        {link
-          ? (
-            <LinkButton href={link}>
-              Saber más
-            </LinkButton>
-            )
-          : null}
+        <div>
+          {href
+            ? (
+              <LinkButton href={href}>
+                Saber más
+              </LinkButton>
+              )
+            : null}
+        </div>
       </header>
       <Image
         src={`${picturesPath}${image.name}.${image.ext}`}

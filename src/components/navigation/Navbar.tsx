@@ -1,9 +1,10 @@
 'use client'
+import ButtonMenu from '../input/core/ButtonMenu'
 // Components
 import Link from './core/Link'
+import LinkButton from './core/LinkButton'
 import LinkEmail from './LinkEmail'
 import Logo from '../data-display/core/Logo'
-import ButtonMenu from '../input/core/ButtonMenu'
 import NextLink from 'next/link'
 import SocialNav from './SocialNav'
 // Store
@@ -19,11 +20,10 @@ import { NAV_LIST, navAriaLabel } from '@/modules/navigation/config'
 import { OC_STATE } from '@/modules/input/config'
 import { DEVICE_SIZES, SIZES, mobileQuery } from '@/modules/sizing/config'
 // Tpes
-import type { OCVariantsDevicesConfig, OCVariantsConfig, TransitionConfig } from '@/types/animation'
-import LinkButton from './core/LinkButton'
+import type { OCVariantsDevicesConfig, OCVariantsConfig, Transition } from '@/types/animation'
 
 /** Navbar animation transition configuration */
-const NAVBAR_TRANSITION: TransitionConfig = {
+const NAVBAR_TRANSITION: Readonly<Transition> = {
   type: 'spring',
   stiffness: 240,
   damping: 26,

@@ -6,10 +6,10 @@ import { motion } from 'framer-motion'
 // Config
 import { OCH_STATE, OC_STATE } from '@/modules/input/config'
 // Types
-import type { OCHVariantsConfig, TransitionConfig } from '@/types/animation'
+import type { OCHVariantsConfig, Transition } from '@/types/animation'
 
 /** Animation transition configuration */
-const transition: TransitionConfig = {
+const transition: Readonly<Transition> = {
   stiffness: 64,
   damping: 12,
   duration: 0.24,

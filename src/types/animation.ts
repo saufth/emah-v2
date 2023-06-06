@@ -12,8 +12,8 @@ export type OCVariantsDevicesConfig = Readonly<Record<SizeDevice, OCVariantsConf
 /** Used to open-closed-hover state animation variants configuration */
 export type OCHVariantsConfig = Readonly<Record<OCHState, Variant>>
 
+/** Used to open-closed-hover state animation variants devices configuration */
+export type OCHVariantsDevicesConfig = Readonly<Record<SizeDevice, OCHVariantsConfig>>
+
 /** Used to animation transition */
 export type Transition = TargetAndTransition['transition']
-
-/** Used to animation transition configuration */
-export type TransitionConfig = Readonly<Transition>

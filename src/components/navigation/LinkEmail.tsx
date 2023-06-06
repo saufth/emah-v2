@@ -4,14 +4,14 @@ import Link from './core/Link'
 import { domain } from '@/modules/app/config'
 import { THEMES } from '@/modules/theme/config'
 // Types
-import type { ThemeStyleConfig, Themeable } from '@/types/theme'
+import type { Theme, Themeable } from '@/types/theme'
 
 /** The email of the organizacion */
 const email = `contacto@${domain}`
 /** The email hypertext reference */
 const mailto = `mailto:contacto@${domain}`
 
-const THEME_STYLES: ThemeStyleConfig = {
+const THEME_STYLES: Readonly<Record<Theme, string>> = {
   primary: 'border-b-secondary/60',
   secondary: 'border-b-white/60'
 }

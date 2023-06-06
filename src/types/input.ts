@@ -16,9 +16,6 @@ export interface Actionable<P = undefined, R = void> {
 /** Button types porpoerty */
 export type ButtonTypes = 'button' | 'submit' | 'reset'
 
-/** Used for button types configuration */
-export type ButtonTypesConfig = Readonly<Record<ButtonTypes, ButtonTypes>>
-
 /** The link button component properties */
 export interface ButtonProps extends Parent<string>, Actionable, Themeable {
   /** The button type */
@@ -30,11 +27,5 @@ export interface ButtonProps extends Parent<string>, Actionable, Themeable {
 /** Open-closed state type */
 export type OCState = 'open' | 'closed'
 
-/** Used for open-closed state configuration */
-export type OCStateConfig = Readonly<Record<OCState, OCState>>
-
 /** The open-closed-hover state type */
 export type OCHState = OCState | 'hover'
-
-/** Used for open-closed-hover state configuration */
-export type OCHStateConfig = Readonly<Record<OCHState, OCHState>>

@@ -1,5 +1,6 @@
 // Components
 import Image from 'next/image'
+// import LinkToContact from '@/components/navigation/LinkToContact'
 import LinkToAbout from '@/components/navigation/LinkToAbout'
 import LinkToSolutions from '@/components/navigation/LinkToSolutions'
 import Loading from '../loading'
@@ -32,15 +33,11 @@ const SOLUTIONS_HEADERS: ReadonlyArray<HeaderProps> = [
   {
     heading: SOLUTIONS[2],
     description: 'Creemos que una página web le da cuerpo a la identidad de tu marca. Es por eso que desarrollamos sistemas responsivos con un propósito más grande que solo informar. Buscamos crear sitios web que sean reactivos al cambio, que generen una experiencia positiva y que muevan tus emociones.'
-  },
-  {
-    heading: SOLUTIONS[3],
-    description: 'No es tan simple con solo tener un logo. Para ser distinguido, es necesario establecer algunos parámetros que se usen siempre: un concepto de diseño. Definimos elementos visuales, colores y tipografía. Creamos presentaciones visuales únicas y consistentes para marcas sobresalientes.'
   }
 ]
 
 /** The solutions section id */
-const solutionsID = APP_ROUTES[1]
+const solutionsID = APP_ROUTES[2]
 
 /** The home page of the application */
 export default function HomePage () {
@@ -48,13 +45,13 @@ export default function HomePage () {
     <main>
       <Hero />
 
-      <section className='px-5% py-36 md:py-44 text-center space-y-10 bg-stone-50'>
-        <header>
-          <h2 className='text-tagline-lg'>
+      <section className='px-5% py-section space-y-10 bg-stone-50'>
+        <header className='flex justify-center'>
+          <h2 className='text-tagline'>
             NUESTRO PROPOSITO
           </h2>
         </header>
-        <p className='h2s'>
+        <p className='h2s text-center'>
           Impulsamos empresas con visión, a fin de crear un legado de progreso y verdad.
         </p>
         <Image
@@ -69,9 +66,9 @@ export default function HomePage () {
         </div>
       </section>
 
-      <section className='px-5% py-24 space-y-12 lg:space-y-24'>
+      <section className='px-5% py-section space-y-12 lg:space-y-24'>
         <header className='space-y-8 text-center lg:text-left'>
-          <h2 className='text-tagline-md'>
+          <h2 className='text-tagline'>
             NUESTRAS SOLUCIONES
           </h2>
           <p className='h2'>
@@ -83,26 +80,26 @@ export default function HomePage () {
           </div>
         </header>
 
-        <div className='px-5'>
-          {SOLUTIONS_HEADERS.map((solution, key) => {
-            const imageName = `${solutionsID}${key}` as PictureType
+        {SOLUTIONS_HEADERS.map((solution, key) => {
+          const imageName = `${solutionsID}${key}` as PictureType
+          const showcaseID = solution.heading.toLowerCase()
 
-            return (
-              <Showcase
-                heading={solution.heading}
-                description={solution.description}
-                image={{
-                  name: imageName,
-                  ext: IMG_EXT.jpg,
-                  alt: solution.heading,
-                  ...PICTURES_SIZE
-                }}
-                reverse={key % 2 !== 0}
-                key={key}
-              />
-            )
-          })}
-        </div>
+          return (
+            <Showcase
+              id={showcaseID}
+              heading={solution.heading}
+              description={solution.description}
+              image={{
+                name: imageName,
+                ext: IMG_EXT.jpg,
+                alt: solution.heading,
+                ...PICTURES_SIZE
+              }}
+              reverse={key % 2 !== 0}
+              key={key}
+            />
+          )
+        })}
       </section>
     </main>
   )

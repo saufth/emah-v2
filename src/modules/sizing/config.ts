@@ -1,14 +1,14 @@
 // Types
-import type { SizeConfig, SizeDeviceConfig } from '@/types/sizing'
+import type { Size, SizeDevice } from '@/types/sizing'
 
 /** The default sizes of the aplication */
-export const DEVICE_SIZES: SizeDeviceConfig = {
+export const DEVICE_SIZES: Readonly<Record<SizeDevice, SizeDevice>> = {
   mobile: 'mobile',
   desktop: 'desktop'
 }
 
 /** The default sizes of the aplication */
-export const SIZES: SizeConfig = {
+export const SIZES: Readonly<Record<Size, Size>> = {
   sm: 'sm',
   md: 'md',
   lg: 'lg'
