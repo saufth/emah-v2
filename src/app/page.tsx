@@ -93,7 +93,7 @@ export default function HomePage () {
                 alt: solution.heading,
                 ...PICTURES_SIZE
               }}
-              href={`/${solutionsID}#${solution.heading.toLowerCase()}`}
+              href={`/${solutionsID}/#${solution.heading.toLowerCase()}`}
               reverse={key % 2 !== 0}
               key={key}
             />
