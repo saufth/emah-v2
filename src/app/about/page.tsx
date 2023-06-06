@@ -68,8 +68,8 @@ const STRATEGY: Readonly<Record<string, HeaderProps>> = {
 /** The about route id */
 const aboutID = APP_ROUTES[1]
 
-/** The home page of the application */
-export default function HomePage () {
+/** The about us page of the application */
+export default function AboutPage () {
   return (
     <main>
       <section className='px-section pb-section pt-32 md:pt-44 space-y-12 bg-stone-100'>

@@ -35,7 +35,7 @@ const ICONS: Readonly<Record<AppIcon, SVGIcon>> = {
 * @returns The Icon component
 */
 export default function Icon ({ name }: IconProps) {
-  const viewbox = `0 0 ${ICONS[name].width}px ${ICONS[name].height}px`
+  const viewbox = `0 0 ${ICONS[name].width} ${ICONS[name].height}`
 
   return (
     <svg

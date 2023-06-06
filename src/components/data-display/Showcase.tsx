@@ -27,20 +27,15 @@ export default function Showcase ({
       id={id}
       className={`flex flex-col-reverse ${containerReverseStyle} justify-between items-start md:items-center gap-y-6 lg:gap-x-12`}
     >
-      <header className='space-y-4 lg:space-y-5 text-center lg:text-left'>
+      <header className='w-full space-y-4 lg:space-y-5 text-center lg:text-left'>
         <h3>
           {heading}
         </h3>
-        <p className='leading-relaxed'>
-          {typeof description === 'string'
-            ? description
-            : (
-              <div className='space-y-4'>
-                {description.map((descriptionItem, key) => (
-                  <div key={key}>{descriptionItem}</div>
-                ))}
-              </div>)}
-        </p>
+        {typeof description === 'string'
+          ? <p>{description}</p>
+          : description.map((descriptionItem, key) => (
+            <p key={key}>{descriptionItem}</p>
+          ))}
         <div>
           {href
             ? (
