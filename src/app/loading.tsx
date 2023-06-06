@@ -14,7 +14,7 @@ export default function Loading () {
           priority
         />
       </div>
-      <span className='font-primary-light text-white text-right'>
+      <span className='text-white text-right'>
         Cargando...
       </span>
     </div>

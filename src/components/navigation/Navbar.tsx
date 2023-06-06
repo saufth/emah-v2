@@ -17,7 +17,7 @@ import { motion } from 'framer-motion'
 // Config
 import { LOGO_TYPES } from '@/modules/data-display/config'
 import { NAV_LIST, navAriaLabel } from '@/modules/navigation/config'
-import { OCH_STATE, OC_STATE } from '@/modules/input/config'
+import { OC_STATE } from '@/modules/input/config'
 import { DEVICE_SIZES, SIZES, mobileQuery } from '@/modules/sizing/config'
 // Tpes
 import type { OCVariantsDevicesConfig, OCVariantsConfig, TransitionConfig } from '@/types/animation'
@@ -103,21 +103,18 @@ const NAV_VARIANTS: OCVariantsConfig = {
  */
 export default function Navbar () {
   // Animation state
-  const [menuState, toggleMenuState, setButtonMenuState] = useGlobalStore(
-    (state) => [state.menuState, state.toggleMenuState, state.setButtonMenuState],
+  const [menuState, setMenuState] = useGlobalStore(
+    (state) => [state.menuState, state.setMenuState],
     shallow
   )
-  /** Close the Menu but not open */
-  const closeToggle = () => {
-    if (menuState === OC_STATE.open) {
-      toggleMenuState()
-      setButtonMenuState(OCH_STATE.closed)
-    }
-  }
+  /** Close the Menu and prevents the open action */
+  const closeMenu = () => { setMenuState(OC_STATE.closed) }
   /** Used to get the media query state of the window */
   const isMobile = useMediaQuery(mobileQuery)
+  /** Used to get the current device size status */
+  const getDeviceSize = () => isMobile ? DEVICE_SIZES.mobile : DEVICE_SIZES.desktop
   /** The header animation variants */
-  const navbarVariants = NAVBAR_DEVICES_CONFIG[isMobile ? DEVICE_SIZES.mobile : DEVICE_SIZES.desktop]
+  const navbarVariants = NAVBAR_DEVICES_CONFIG[getDeviceSize()]
 
   return (
     <motion.header
@@ -128,7 +125,7 @@ export default function Navbar () {
     >
       <nav aria-label={navAriaLabel}>
         <div className='w-11/12 h-16 md:h-20 px-6 md:px-10 mx-auto fixed top-4 md:top-7 right-0 left-0 z-60 flex justify-between items-center'>
-          <NextLink href={NAV_LIST[0].href} onClick={closeToggle}>
+          <NextLink href={NAV_LIST[0].href} onClick={closeMenu}>
             <Logo
               type={isMobile ? LOGO_TYPES.logomark : LOGO_TYPES.logoname}
               alt={NAV_LIST[0].children}
@@ -156,7 +153,7 @@ export default function Navbar () {
                     <Link
                       href={option.href}
                       size={SIZES.lg}
-                      action={closeToggle}
+                      action={closeMenu}
                     >
                       {option.children}
                     </Link>

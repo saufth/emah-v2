@@ -7,14 +7,13 @@ import NextLink from 'next/link'
 // Config
 import { NAV_LIST, navAriaLabel } from '@/modules/navigation/config'
 import { organization } from '@/modules/app/config'
-import { THEMES } from '@/modules/theme/config'
 import { SIZES } from '@/modules/sizing/config'
 import { LOGO_TYPES } from '@/modules/data-display/config'
 
 /** The main footer of the application */
 export default function Footer () {
   return (
-    <footer className='bg-secondary'>
+    <footer className='bg-stone-200'>
       <div className='px-5%'>
         <div className='max-w-8xl py-16 mx-auto flex flex-col lg:flex-row justify-between gap-y-8'>
           <div className='lg:w-[232px] grid lg:block place-content-center'>
@@ -22,7 +21,6 @@ export default function Footer () {
               <Logo
                 type={LOGO_TYPES.logoname}
                 alt={NAV_LIST[0].children}
-                theme={THEMES.secondary}
                 size={SIZES.sm}
               />
             </NextLink>
@@ -34,7 +32,7 @@ export default function Footer () {
                   className='last:hidden last:lg:block'
                   key={key}
                 >
-                  <Link href={option.href} theme={THEMES.secondary} size={SIZES.sm}>
+                  <Link href={option.href} size={SIZES.sm}>
                     {option.children}
                   </Link>
                 </li>
@@ -42,15 +40,15 @@ export default function Footer () {
             </ul>
           </nav>
           <div className='lg:w-[232px] text-center lg:text-right'>
-            <LinkEmail theme={THEMES.secondary} />
+            <LinkEmail />
           </div>
           <div className='grid place-content-center lg:hidden'>
-            <LinkToContact theme={THEMES.secondary} />
+            <LinkToContact />
           </div>
         </div>
       </div>
       <div>
-        <div className='max-w-8xl px-1 py-4 mx-auto text-white text-center'>
+        <div className='max-w-8xl px-1 py-4 mx-auto text-center'>
           {`Copyright ${new Date().getFullYear()} ${organization}. All rights reserved.`}
         </div>
       </div>

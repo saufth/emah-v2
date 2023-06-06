@@ -4,9 +4,11 @@ import { shallow } from 'zustand/shallow'
 // Ainimation
 import { motion } from 'framer-motion'
 // Config
-import { OCH_STATE } from '@/modules/input/config'
+import { OCH_STATE, OC_STATE } from '@/modules/input/config'
 // Types
 import type { OCHVariantsConfig, TransitionConfig } from '@/types/animation'
+import { OCHState } from '@/types/input'
+import { useState } from 'react'
 
 /** Animation transition configuration */
 const transition: TransitionConfig = {
@@ -67,31 +69,33 @@ const SPAN_B_VARIANTS: OCHVariantsConfig = {
 * @returns The ButtonMenu component
 */
 export default function ButtonMenu () {
+  const [buttonMenuState, setButtonMenuState] = useState<OCHState>(OCH_STATE.closed)
   // Animation state
-  const [buttonMenuState, setButtonMenuState, toggleMenuState] = useGlobalStore(
-    (state) => [state.buttonMenuState, state.setButtonMenuState, state.toggleMenuState],
+  const [menuState, setMenuState] = useGlobalStore(
+    (state) => [state.menuState, state.setMenuState],
     shallow
   )
   /** Check if the menu is closed */
-  const isMenuClosed = () => buttonMenuState !== OCH_STATE.open
+  const isMenuClosed = () => menuState !== OC_STATE.open
   /** Handle the animation closed state */
   const handleMouseOut = () => {
-    isMenuClosed() && setButtonMenuState(OCH_STATE.closed)
+    if (!isMenuClosed()) return false
+    setMenuState(OC_STATE.closed)
+    setButtonMenuState(OCH_STATE.closed)
   }
-  /** Handle the animation open state */
-  const handleOpenState = () => {
-    toggleMenuState()
-    isMenuClosed() ? setButtonMenuState(OCH_STATE.open) : setButtonMenuState(OCH_STATE.closed)
+  /** Handle the animamenu toggle state */
+  const toggleMenu = () => {
+    setMenuState(isMenuClosed() ? OC_STATE.open : OC_STATE.closed)
   }
-  /** Handle the animation hover state */
+  /** Handle the mouse over event state */
   const handleMouseOver = () => {
-    isMenuClosed() && setButtonMenuState(OCH_STATE.hover)
+    setButtonMenuState(isMenuClosed() ? OCH_STATE.hover : OCH_STATE.closed)
   }
 
   return (
     <button
       className='w-8 md:w-9 h-9 relative [&>span]:w-full [&>span]:h-0.5 [&>span]:absolute [&>span]:bg-secondary'
-      onClick={handleOpenState}
+      onClick={toggleMenu}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >

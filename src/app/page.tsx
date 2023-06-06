@@ -47,7 +47,7 @@ export default function HomePage () {
 
       <section className='px-5% py-36 md:py-44 space-y-10 bg-stone-50'>
         <header className='flex justify-center'>
-          <h2 className='text-tagline-lg'>
+          <h2 className='text-tagline'>
             NUESTRO PROPOSITO
           </h2>
         </header>
@@ -68,7 +68,7 @@ export default function HomePage () {
 
       <section className='px-5% py-24 space-y-12 lg:space-y-24'>
         <header className='space-y-8 text-center lg:text-left'>
-          <h2 className='text-tagline-md'>
+          <h2 className='text-tagline'>
             NUESTRAS SOLUCIONES
           </h2>
           <p className='h2'>
