@@ -83,6 +83,12 @@
 }
 
 @layer utilities {
+  /* Spacing */
+
+    .py-section {
+      @apply py-24;
+    }
+
   /* Typography */
 
   .h2s {

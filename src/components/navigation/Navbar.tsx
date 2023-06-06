@@ -2,7 +2,6 @@
 // Components
 import Link from './core/Link'
 import LinkEmail from './LinkEmail'
-import LinkToContact from './LinkToContact'
 import Logo from '../data-display/core/Logo'
 import ButtonMenu from '../input/core/ButtonMenu'
 import NextLink from 'next/link'
@@ -21,6 +20,7 @@ import { OC_STATE } from '@/modules/input/config'
 import { DEVICE_SIZES, SIZES, mobileQuery } from '@/modules/sizing/config'
 // Tpes
 import type { OCVariantsDevicesConfig, OCVariantsConfig, TransitionConfig } from '@/types/animation'
+import LinkButton from './core/LinkButton'
 
 /** Navbar animation transition configuration */
 const NAVBAR_TRANSITION: TransitionConfig = {
@@ -103,12 +103,15 @@ const NAV_VARIANTS: OCVariantsConfig = {
  */
 export default function Navbar () {
   // Animation state
-  const [menuState, setMenuState] = useGlobalStore(
-    (state) => [state.menuState, state.setMenuState],
+  const [menuState, setMenuState, setButtonMenuState] = useGlobalStore(
+    (state) => [state.menuState, state.setMenuState, state.setButtonMenuState],
     shallow
   )
   /** Close the Menu and prevents the open action */
-  const closeMenu = () => { setMenuState(OC_STATE.closed) }
+  const closeMenu = () => {
+    setMenuState(OC_STATE.closed)
+    setButtonMenuState(OC_STATE.closed)
+  }
   /** Used to get the media query state of the window */
   const isMobile = useMediaQuery(mobileQuery)
   /** Used to get the current device size status */
@@ -162,7 +165,12 @@ export default function Navbar () {
               </ul>
 
               <div className='grid gap-y-6'>
-                <LinkToContact />
+                <LinkButton
+                  href={NAV_LIST[3].href}
+                  action={closeMenu}
+                >
+                  {NAV_LIST[3].children}
+                </LinkButton>
                 <LinkEmail />
                 <SocialNav />
               </div>

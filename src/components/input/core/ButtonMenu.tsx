@@ -7,8 +7,6 @@ import { motion } from 'framer-motion'
 import { OCH_STATE, OC_STATE } from '@/modules/input/config'
 // Types
 import type { OCHVariantsConfig, TransitionConfig } from '@/types/animation'
-import { OCHState } from '@/types/input'
-import { useState } from 'react'
 
 /** Animation transition configuration */
 const transition: TransitionConfig = {
@@ -69,10 +67,14 @@ const SPAN_B_VARIANTS: OCHVariantsConfig = {
 * @returns The ButtonMenu component
 */
 export default function ButtonMenu () {
-  const [buttonMenuState, setButtonMenuState] = useState<OCHState>(OCH_STATE.closed)
-  // Animation state
-  const [menuState, setMenuState] = useGlobalStore(
-    (state) => [state.menuState, state.setMenuState],
+  // Menu state
+  const [menuState, buttonMenuState, setMenuState, setButtonMenuState] = useGlobalStore(
+    (state) => [
+      state.menuState,
+      state.buttonMenuState,
+      state.setMenuState,
+      state.setButtonMenuState
+    ],
     shallow
   )
   /** Check if the menu is closed */

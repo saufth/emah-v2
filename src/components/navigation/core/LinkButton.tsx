@@ -15,7 +15,7 @@ import styles from '@/styles/Button.module.css'
  *
  * @default theme 'primary'
  */
-export default function LinkButton ({ children, href, theme = THEMES.primary }: LinkButtonProps) {
+export default function LinkButton ({ children, href, action, theme = THEMES.primary }: LinkButtonProps) {
   // Theme styles
   const btnThemeStyle = theme === THEMES.secondary
     ? styles.btn__secondary
@@ -27,7 +27,7 @@ export default function LinkButton ({ children, href, theme = THEMES.primary }: 
   const btnContainerStyle = `${styles.btn_container} ${btnContainerThemeStyle}`
 
   return (
-    <NextLink href={href}>
+    <NextLink href={href} onClick={action}>
       <div className={btnStyle}>
         <div className={btnContainerStyle}>
           {children}
