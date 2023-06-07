@@ -32,7 +32,7 @@
   }
 
   h1 {
-    @apply font-primary-black text-6xl md:text-9xl leading-tight md:leading-tight text-gradient-light;
+    @apply font-primary-black text-6xl md:text-9xl leading-tight md:leading-tight;
   }
 
   h2 {
@@ -40,11 +40,11 @@
   }
 
   h3 {
-    @apply font-primary-bold text-3xl md:text-5xl text-gradient-dark;
+    @apply font-primary-bold text-3xl md:text-5xl;
   }
 
   h4 {
-    @apply font-primary-bold text-xl md:text-3xl text-gradient-dark;
+    @apply font-primary-bold text-xl md:text-3xl;
   }
 
   /* Primary Font - Lato */
@@ -124,11 +124,11 @@
   /* Typography */
 
   .h2s {
-    @apply font-primary-bold text-4xl md:text-8xl leading-tight md:leading-snug tracking-wide text-gradient-dark;
+    @apply font-primary-bold text-4xl md:text-8xl leading-tight md:leading-snug tracking-wide;
   }
 
   .h2 {
-    @apply font-primary-bold text-4xl md:text-7xl leading-tight md:leading-tight text-gradient-dark;
+    @apply font-primary-bold text-4xl md:text-7xl leading-tight md:leading-tight;
   }
 
   .text-gradient-base {
@@ -148,7 +148,7 @@
   }
 
   .text-tagline {
-    @apply max-w-fit font-primary-bold text-sm md:text-base text-gradient-base from-primary via-primary-dark to-primary;
+    @apply max-w-fit font-primary-bold text-sm md:text-base via-primary-dark;
   }
 
   /* Background */

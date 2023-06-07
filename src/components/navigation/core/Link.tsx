@@ -17,8 +17,8 @@ const SIZE_STYLES: Readonly<Record<Size, string>> = {
 
 /** The link theme style configuration */
 const THEME_STYLES: Readonly<Record<Theme, string>> = {
-  primary: 'text-gradient-dark',
-  secondary: 'text-gradient-light'
+  primary: '',
+  secondary: 'text-white'
 }
 
 /**
@@ -45,7 +45,7 @@ export default function Link ({
 
   return (
     <NextLink
-      className={`max-w-fit hover:text-gradient ${linkStyle} transition-colors`}
+      className={`max-w-fit hover:text-primary-dark ${linkStyle} transition-colors`}
       href={href}
       target={target}
       rel={linkRel}

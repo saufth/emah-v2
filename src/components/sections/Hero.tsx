@@ -50,7 +50,7 @@ export default function Hero () {
         }}
         ref={heroContentRef}
       >
-        <h1 className='max-w-7xl mx-auto text-center text-gradient-light'>
+        <h1 className='max-w-7xl mx-auto text-center text-white'>
           {description}
         </h1>
 
