@@ -48,7 +48,7 @@ export default function HomePage () {
       <section className='p-section space-y-10 bg-stone-50'>
         <header className='flex justify-center'>
           <h2 className='text-tagline'>
-            NUESTRO PROPOSITO
+            NUESTRO PROPÓSITO
           </h2>
         </header>
         <p className='h2s text-center'>

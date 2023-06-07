@@ -31,7 +31,7 @@ export const SOLUTIONS_NAV: Readonly<Navigable> = {
 
 /** The contact page navigation configuration */
 export const CONTACT_NAV: Readonly<Navigable> = {
-  children: 'Contactános',
+  children: 'Contáctanos',
   href: `/${APP_ROUTES[3]}`
 }
 
