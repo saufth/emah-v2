@@ -52,7 +52,7 @@ export default function HomePage () {
           </h2>
         </header>
         <p className='h2s text-center'>
-          {purpose}.
+          {purpose}
         </p>
         <Image
           src={`${picturesPath}purpose.${IMG_EXT.jpg}`}

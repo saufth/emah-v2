@@ -26,7 +26,7 @@ export const organizationTitle = `${organization} – ${organizationAlt}`
 export const description = 'Hacemos Marketing Estratégico'
 
 /** The organization purpose */
-export const purpose = 'Impulsamos empresas con visión, a fin de crear un legado de progreso y verdad'
+export const purpose = 'Impulsamos empresas con visión, a fin de crear un legado de progreso y verdad.'
 
 /** Organization solutions */
 export const SOLUTIONS: ReadonlyArray<string> = [

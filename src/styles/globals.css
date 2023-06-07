@@ -148,7 +148,7 @@
   }
 
   .text-tagline {
-    @apply max-w-fit font-primary-bold text-sm md:text-base via-primary-dark;
+    @apply max-w-fit font-primary-bold text-sm md:text-base text-primary-dark;
   }
 
   /* Background */
