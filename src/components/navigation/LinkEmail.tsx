@@ -4,17 +4,12 @@ import Link from './core/Link'
 import { domain } from '@/modules/app/config'
 import { THEMES } from '@/modules/theme/config'
 // Types
-import type { Theme, Themeable } from '@/types/theme'
+import type { Themeable } from '@/types/theme'
 
 /** The email of the organizacion */
 const email = `contacto@${domain}`
 /** The email hypertext reference */
 const mailto = `mailto:contacto@${domain}`
-
-const THEME_STYLES: Readonly<Record<Theme, string>> = {
-  primary: 'border-b-secondary/60',
-  secondary: 'border-b-white/60'
-}
 
 /**
  * The main link to redirect to the default email provider interface of the user
@@ -24,7 +19,7 @@ const THEME_STYLES: Readonly<Record<Theme, string>> = {
  */
 export default function LinkEmail ({ theme = THEMES.primary }: Themeable) {
   return (
-    <div className={`max-w-fit border-b ${THEME_STYLES[theme]}`}>
+    <div className='max-w-fit'>
       <Link
         href={mailto}
         theme={theme}
