@@ -3,8 +3,13 @@ import { BUTTON_TYPES } from '@/modules/input/config'
 import { THEMES } from '@/modules/theme/config'
 // Types
 import type { ButtonProps } from '@/types/input'
-// Styles
-import styles from '@/styles/Button.module.css'
+import type { Theme } from '@/types/theme'
+
+/** The button themeable styles configuration */
+export const BTN_THEME_STYLES: Readonly<Record<Theme, string>> = {
+  primary: 'btn__primary',
+  secondary: 'btn__secondary'
+}
 
 /**
  * A simple themeable button component
@@ -22,23 +27,14 @@ export default function Button ({
   theme = THEMES.primary,
   disabled
 }: ButtonProps) {
-  // Theme styles
-  const btnThemeStyle = theme === THEMES.secondary
-    ? styles.btn__secondary
-    : styles.btn__primary
-  const btnContainerThemeStyle = theme === THEMES.secondary
-    ? styles.btn_container__secondary
-    : styles.btn_container__primary
-  const btnStyle = `${styles.btn} ${btnThemeStyle}`
-  const btnContainerStyle = `${styles.btn_container} ${btnContainerThemeStyle}`
-
   return (
-    <button onClick={action} type={type} disabled={disabled}>
-      <div className={btnStyle}>
-        <div className={btnContainerStyle}>
-          {children}
-        </div>
-      </div>
+    <button
+      className={`btn ${BTN_THEME_STYLES[theme]}`}
+      onClick={action}
+      type={type}
+      disabled={disabled}
+    >
+      {children}
     </button>
   )
 }

@@ -21,7 +21,7 @@ import {
 import type { Metadata } from 'next'
 import type { Parent } from '@/types/layout'
 // Styles
-import '@/styles/globals.css'
+import './globals.css'
 
 /** The main head metadata configuration */
 export const metadata: Metadata = {

@@ -89,7 +89,7 @@ export default function AboutPage () {
       <section className='p-section space-y-12 lg:space-y-24'>
         <header className='space-y-8 text-center lg:text-left'>
           <h2 className='text-tagline mx-auto md:mx-0'>
-            NUESTRA ESTRATÉGIA
+            NUESTRA ESTRATEGIA
           </h2>
           <p className='h2'>
             Aquí te presentamos los aspectos más importantes, mismos que forman

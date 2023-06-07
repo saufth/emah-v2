@@ -4,8 +4,13 @@ import NextLink from 'next/link'
 import { THEMES } from '@/modules/theme/config'
 // Types
 import type { LinkButtonProps } from '@/types/navigation'
-// Styles
-import styles from '@/styles/Button.module.css'
+import type { Theme } from '@/types/theme'
+
+/** The button themeable styles configuration */
+export const BTN_THEME_STYLES: Readonly<Record<Theme, string>> = {
+  primary: 'btn__primary',
+  secondary: 'btn__secondary'
+}
 
 /**
  * A simple themeable link button for navigation
@@ -15,23 +20,16 @@ import styles from '@/styles/Button.module.css'
  *
  * @default theme 'primary'
  */
-export default function LinkButton ({ children, href, action, theme = THEMES.primary }: LinkButtonProps) {
-  // Theme styles
-  const btnThemeStyle = theme === THEMES.secondary
-    ? styles.btn__secondary
-    : styles.btn__primary
-  const btnContainerThemeStyle = theme === THEMES.secondary
-    ? styles.btn_container__secondary
-    : styles.btn_container__primary
-  const btnStyle = `${styles.btn} ${btnThemeStyle}`
-  const btnContainerStyle = `${styles.btn_container} ${btnContainerThemeStyle}`
-
+export default function LinkButton ({
+  children,
+  href,
+  action,
+  theme = THEMES.primary
+}: LinkButtonProps) {
   return (
     <NextLink href={href} onClick={action}>
-      <div className={btnStyle}>
-        <div className={btnContainerStyle}>
-          {children}
-        </div>
+      <div className={`btn ${BTN_THEME_STYLES[theme]}`}>
+        {children}
       </div>
     </NextLink>
   )

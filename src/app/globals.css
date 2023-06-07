@@ -161,3 +161,19 @@
     @apply bg-gradient-to-r from-primary-dark to-primary-light;
   }
 }
+
+@layer components {
+  /* Input */
+
+  .btn {
+    @apply max-w-fit px-6 py-4 font-primary-bold text-center leading-none whitespace-nowrap rounded-full;
+  }
+
+  .btn__primary {
+    @apply text-white bg-gradient-to-r from-primary-dark to-primary;
+  }
+
+  .btn__secondary {
+    @apply text-primary-dark bg-white;
+  }
+}

@@ -84,7 +84,7 @@ export default function ContactForm () {
             name='contact_description'
             id='contact_description'
             rows={2}
-            placeholder='Cuentanos sobre tu proyecto'
+            placeholder='Cuéntanos sobre tu proyecto'
             defaultValue=''
             required
           />
