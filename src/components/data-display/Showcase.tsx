@@ -1,7 +1,9 @@
 // Componens
 import Image from 'next/image'
 import LinkButton from '../navigation/core/LinkButton'
+import LinkToContact from '../navigation/LinkToContact'
 // Config
+import { CONTACT_NAV } from '@/modules/navigation/config'
 import { picturesPath } from '@/modules/data-display/config'
 // Types
 import type { ShowcaseProps } from '@/types/data-dislay'
@@ -31,19 +33,21 @@ export default function Showcase ({
         <h3>
           {heading}
         </h3>
-        {typeof description === 'string'
-          ? <p>{description}</p>
-          : description.map((descriptionItem, key) => (
-            <p key={key}>{descriptionItem}</p>
-          ))}
+        <div className='space-y-2 lg:space-y-3'>
+          {typeof description === 'string'
+            ? <p>{description}</p>
+            : description.map((descriptionItem, key) => (
+              <p key={key}>{descriptionItem}</p>
+            ))}
+        </div>
         <div className='flex justify-center md:block'>
-          {href
+          {href && href !== CONTACT_NAV.href
             ? (
               <LinkButton href={href}>
                 Saber más
               </LinkButton>
               )
-            : null}
+            : <LinkToContact />}
         </div>
       </header>
       <Image

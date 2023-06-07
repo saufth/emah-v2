@@ -83,7 +83,7 @@ export default function ContactForm () {
             className='w-full px-4 py-3 border-b border-b-stone-300 resize-none'
             name='contact_description'
             id='contact_description'
-            rows={1}
+            rows={2}
             placeholder='Cuentanos sobre tu proyecto'
             defaultValue=''
             required

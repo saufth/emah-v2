@@ -75,7 +75,7 @@ export default function AboutPage () {
       <section className='px-section pb-section pt-32 md:pt-44 space-y-12 bg-stone-100'>
         <h1 className='h2s text-center'>
           El éxito a corto, mediano y largo plazo de cualquier empresa no depende
-          de un solo aspecto, sino de la sincronización de muchos
+          de un solo aspecto, sino de la sincronización de muchos.
         </h1>
         <Image
           src={`${picturesPath}${aboutID}.${IMG_EXT.jpg}`}
@@ -94,7 +94,7 @@ export default function AboutPage () {
           <p className='h2'>
             Aquí te presentamos los aspectos más importantes, mismos que forman
             parte de nuestro ADN y que son la clave en la generación de soluciones
-            de valor para nuestros clientes
+            de valor para nuestros clientes.
           </p>
         </header>
 

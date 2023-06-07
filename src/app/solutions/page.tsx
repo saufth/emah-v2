@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Showcase from '@/components/data-display/Showcase'
 // Config
-import { APP_ROUTES } from '@/modules/navigation/config'
+import { APP_ROUTES, CONTACT_NAV } from '@/modules/navigation/config'
 import { picturesPath, IMG_EXT, PICTURES_SIZE } from '@/modules/data-display/config'
 import { SOLUTIONS, organization } from '@/modules/app/config'
 // Types
@@ -54,7 +54,7 @@ export default function SolutionsPage () {
       <section className='px-section pb-section pt-32 md:pt-44 space-y-12 bg-stone-100'>
         <h1 className='h2s text-center'>
           Nuestro ideal es convertirnos en un aliado estratégico y determinante
-          en el éxito trascendente de nuestros clientes y socios
+          en el éxito trascendente de nuestros clientes y socios.
         </h1>
         <Image
           src={`${picturesPath}${solutionsID}.${IMG_EXT.jpg}`}
@@ -73,7 +73,7 @@ export default function SolutionsPage () {
           <p className='h2'>
             Nos apasiona crear posibilidades infinitas que generen valor a sus modelos
             de negocio para que, día con día, se vuelvan más competitivos y evolutivos
-            al transcurso de las generaciones
+            al transcurso de las generaciones.
           </p>
         </header>
 
@@ -83,6 +83,7 @@ export default function SolutionsPage () {
               id={solution}
               heading={SOLUTIONS_CONFIG[solution].heading}
               description={SOLUTIONS_CONFIG[solution].description}
+              href={CONTACT_NAV.href}
               image={{
                 name: `${solutionsID}${key}`,
                 ext: IMG_EXT.jpg,
