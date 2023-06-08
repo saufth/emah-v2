@@ -35,7 +35,7 @@ const STRATEGY: Readonly<Record<string, HeaderProps>> = {
   assume: {
     heading: 'No asumimos',
     description: [
-      'Se debe tener certeza en cada tarea u objetivo a realizar. Nunca asumir, en caso no tener una certeza plena.',
+      'Se debe tener certeza en cada tarea u objetivo a realizar. Nunca asumir, en caso de no tener plena certeza.',
       'Evitar el retrabajo. Dar indicaciones claras incrementa las probabilidades de que las cosas se hagan bien y a la primera.',
       'El estudio de mercado estratégico es un pilar indispensable en el momento de tomar decisiones que generen valor para el cliente.'
     ]
