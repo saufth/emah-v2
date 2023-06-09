@@ -1,15 +1,10 @@
 // Components
 import Link from './core/Link'
 // Config
-import { domain } from '@/modules/app/config'
+import { contactEmail } from '@/modules/app/config'
 import { THEMES } from '@/modules/theme/config'
 // Types
 import type { Themeable } from '@/types/theme'
-
-/** The email of the organizacion */
-const email = `contacto@${domain}`
-/** The email hypertext reference */
-const mailto = `mailto:contacto@${domain}`
 
 /**
  * The main link to redirect to the default email provider interface of the user
@@ -21,12 +16,12 @@ export default function LinkEmail ({ theme = THEMES.primary }: Themeable) {
   return (
     <div className='max-w-fit'>
       <Link
-        href={mailto}
+        href={`mailto:${contactEmail}`}
         theme={theme}
         rel={['noopener', 'noreferrer']}
         underline
       >
-        {email}
+        {contactEmail}
       </Link>
     </div>
   )

@@ -7,6 +7,9 @@ export const domain = process.env.NEXT_PUBLIC_DOMAIN
 /** The base URL of the aplication */
 export const baseUrl: URL = new URL(`https://${domain}`)
 
+/** The contact email of the organization */
+export const contactEmail = `contacto@${domain}`
+
 /** The project author */
 export const authors: Author = {
   name: 'Sauftdev',

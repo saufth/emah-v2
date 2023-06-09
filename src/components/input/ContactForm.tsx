@@ -3,8 +3,8 @@
 import Button from '@/components/input/core/Button'
 // React
 import { useRef, FormEvent, useState } from 'react'
-// Services
-import emailjs from '@emailjs/browser'
+// Types
+import type { MailerData } from '@/types/common'
 
 /** The contact form of the application */
 export default function ContactForm () {
@@ -29,26 +29,30 @@ export default function ContactForm () {
    * Used for send emails from contact form
    * @param event The form event used for prevent default
    */
-  const sendEmail = (event: FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const node = formRef.current
-
-    if (node) {
-      setIsSendButtonDisabled(true)
-      emailjs.sendForm(
-        String(process.env.NEXT_PUBLIC_EMAIL_SERVICE_KEY),
-        String(process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_KEY),
-        formRef.current,
-        String(process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY)
-      ).then(() => {
-        setModalMessageState('Hemos recibido tu mensaje')
-        openModal()
-      }, () => {
-        setModalMessageState('Lo sentimos, hubo un problema al intentar enviar el mensaje')
-        openModal()
-      })
+    const data: MailerData = {
+      name: String(event.currentTarget.contactName.value),
+      email: String(event.currentTarget.contactEmail.value),
+      message: String(event.currentTarget.contactMessage.value)
     }
+    console.log(data)
+
+    setIsSendButtonDisabled(true)
+    const response = await fetch('/api/contact', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    console.log(response)
+    if (!response.ok) {
+      setModalMessageState('Lo sentimos, hubo un problema al intentar enviar el mensaje')
+    }
+    setModalMessageState('Hemos recibido tu mensaje')
+    openModal()
   }
 
   return (
@@ -62,8 +66,8 @@ export default function ContactForm () {
           <input
             className='w-full px-4 py-3 border-b border-b-stone-300 resize-none'
             type='text'
-            name='contact_name'
-            id='contact_name'
+            name='contactName'
+            id='contactName'
             placeholder='Tu nombre'
             required
           />
@@ -72,8 +76,8 @@ export default function ContactForm () {
           <input
             className='w-full px-4 py-3 border-b border-b-stone-300 resize-none'
             type='email'
-            name='contact_email'
-            id='contact_email'
+            name='contactEmail'
+            id='contactEmail'
             placeholder='Tu Email'
             required
           />
@@ -81,8 +85,8 @@ export default function ContactForm () {
         <div>
           <textarea
             className='w-full px-4 py-3 border-b border-b-stone-300 resize-none'
-            name='contact_description'
-            id='contact_description'
+            name='contactMessage'
+            id='contactMessage'
             rows={2}
             placeholder='Cuéntanos sobre tu proyecto'
             defaultValue=''
