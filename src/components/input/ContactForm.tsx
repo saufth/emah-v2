@@ -3,8 +3,12 @@
 import Button from '@/components/input/core/Button'
 // React
 import { useRef, FormEvent, useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 // Types
 import type { MailerData } from '@/types/common'
+
+/** The google recaptcha site key */
+const recaptchaSitekey = String(process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_KEY)
 
 /** The contact form of the application */
 export default function ContactForm () {
@@ -12,17 +16,31 @@ export default function ContactForm () {
   const [modalMessageState, setModalMessageState] = useState<string>('')
   // The send button state
   const [isSendButtonDisabled, setIsSendButtonDisabled] = useState<boolean>(false)
+
   // The form reference
   const formRef = useRef<HTMLFormElement>(null)
+  // The recaptcha reference
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
   // The modal reference
   const dialogRef = useRef<HTMLDialogElement>(null)
 
-  /** Open the modal */
-  const openModal = () => { dialogRef.current?.showModal() }
+  /**
+   * Open the modal
+   * @param message The message to show in the modal
+   */
+  const openModal = (message: string) => {
+    setModalMessageState(message)
+    dialogRef.current?.showModal()
+  }
   /** Close the modal */
   const closeModal = () => {
     dialogRef.current?.close()
     setIsSendButtonDisabled(false)
+  }
+
+  /** The google recaptcha handler */
+  const handleRecaptcha = () => {
+    console.log(recaptchaRef.current?.getValue())
   }
 
   /**
@@ -32,12 +50,16 @@ export default function ContactForm () {
   const sendEmail = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
+    if (!recaptchaRef.current?.getValue()) {
+      openModal('Porfavor, verifica que no eres un robot.')
+      return
+    }
+
     const data: MailerData = {
       name: String(event.currentTarget.contactName.value),
       email: String(event.currentTarget.contactEmail.value),
       message: String(event.currentTarget.contactMessage.value)
     }
-    console.log(data)
 
     setIsSendButtonDisabled(true)
     const response = await fetch('/api/contact', {
@@ -47,12 +69,11 @@ export default function ContactForm () {
       },
       body: JSON.stringify(data)
     })
-    console.log(response)
-    if (!response.ok) {
-      setModalMessageState('Lo sentimos, hubo un problema al intentar enviar el mensaje')
-    }
-    setModalMessageState('Hemos recibido tu mensaje')
-    openModal()
+
+    response.ok && formRef.current?.reset()
+
+    const { message: responseMessage } = await response.json()
+    openModal(responseMessage)
   }
 
   return (
@@ -93,12 +114,21 @@ export default function ContactForm () {
             required
           />
         </div>
-        <div className='pt-6 flex justify-center'>
+
+        <div className='flex flex-col items-center gap-y-8'>
+          <div className='max-w-fit'>
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={recaptchaSitekey}
+              onChange={handleRecaptcha}
+            />
+          </div>
           <Button type='submit' disabled={isSendButtonDisabled}>
             Enviar
           </Button>
         </div>
       </form>
+
       <dialog className='p-5 m-auto space-y-3' ref={dialogRef}>
         <div className='pb-5 text-lg text-stone-500 border-b border-b-stone-300'>
           {modalMessageState}

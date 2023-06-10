@@ -1,7 +1,7 @@
 {
   "name": "emah",
   "version": "1.2.0",
-  "description": "A powerful production-ready environment with SEO optimized",
+  "description": "A powerful production-ready environment",
   "private": true,
   "homepage": "https://emah.mx/",
   "engines": {
@@ -22,6 +22,7 @@
     "nodemailer": "6.9.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-google-recaptcha": "^3.1.0",
     "zustand": "4.3.8"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "@types/nodemailer": "6.4.8",
     "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
+    "@types/react-google-recaptcha": "^2.1.5",
     "autoprefixer": "10.4.14",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
