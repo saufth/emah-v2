@@ -38,11 +38,6 @@ export default function ContactForm () {
     setIsSendButtonDisabled(false)
   }
 
-  /** The google recaptcha handler */
-  const handleRecaptcha = () => {
-    console.log(recaptchaRef.current?.getValue())
-  }
-
   /**
    * Used for send emails from contact form
    * @param event The form event used for prevent default
@@ -120,11 +115,10 @@ export default function ContactForm () {
             <ReCAPTCHA
               ref={recaptchaRef}
               sitekey={recaptchaSitekey}
-              onChange={handleRecaptcha}
             />
           </div>
           <Button type='submit' disabled={isSendButtonDisabled}>
-            Enviar
+            {!recaptchaRef.current?.getValue() ? 'Enviar >' : 'Enviando..'}
           </Button>
         </div>
       </form>
