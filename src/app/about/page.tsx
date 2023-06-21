@@ -184,7 +184,7 @@ export default function AboutPage () {
             queremos hacer por ti.
           </p>
           <p>
-            Hoy en día, y no me dejarán mentir, conseguir que el marketing genere resultados reales y
+            Hoy en día, conseguir que el marketing genere resultados reales y
             tangibles es un gran reto. En muchas ocasiones, más que una campaña armada y bien pensada,
             se ha vuelto un juego utilizar gente visualmente “atractiva” y/o supuestos “influencers” para
             intentar posicionar las marcas e incrementar las ventas. Sin embargo, en muchas ocasiones, lo
@@ -196,7 +196,7 @@ export default function AboutPage () {
             y que tu producto o servicio se distinga en el mercado por generar valor para los clientes,
             más allá de un bajo precio. Es más, aquí te dejamos un spoiler: Si tu idea para competir en el
             mercado está pensada solo en el precio, es muy probable que tu empresa no dure mucho. La
-            máxima de todas las empresas debe ser el formar una cultura y que esta se vuelva parte de la
+            máxima de todas las empresas debe ser el formar una cultura y que ésta se vuelva parte de la
             vida de sus clientes.
           </p>
           <p>
