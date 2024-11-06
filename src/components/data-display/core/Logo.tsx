@@ -8,25 +8,25 @@ import { THEMES } from '@/modules/theme/config'
 import type { Dimensionable, Size } from '@/types/sizing'
 import type { LogoProps, LogoType } from '@/types/data-dislay'
 
-/** The default logotype size */
-const logoSize: Dimensionable = {
-  width: 826,
-  height: 250
-}
-
 /** Logo component sizes configuration */
 const LOGO_SIZES: Readonly<Record<LogoType, Dimensionable>> = {
-  logotype: logoSize,
-  logoname: logoSize,
+  logotype: {
+    width: 1000,
+    height: 234.793
+  },
+  logoname: {
+    width: 1000,
+    height: 234.793
+  },
   logomark: {
-    width: 307,
-    height: logoSize.height
+    width: 1000,
+    height: 931.169
   }
 }
 
 /** Logo component size styles configuration */
 const LOGO_SIZE_STYLES: Readonly<Record<Size, string>> = {
-  sm: 'h-8 md:h-9',
+  sm: 'h-5 md:h-7',
   md: 'h-16',
   lg: 'h-24'
 }

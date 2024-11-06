@@ -47,9 +47,9 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: '#F5A130', // Deep Saffron
-          DEFAULT: '#FF6700', // Safety Orange (Blaze Orange)
-          dark: '#FF3600' // Coquelicot
+          light: '#EBA12A',
+          DEFAULT: '#EB622B',
+          dark: '#EB3F2A'
         },
         secondary: '#222222' // Raisin Black
       },
